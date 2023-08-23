@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contour bund calculator Results</title>
+	<style type="text/css">
+		#result-image-container {
+			position: absolute;
+			display: inline-block;
+            top: 10%;
+            right:40%;
+		}
+
+        #result-values1 {
+			position: absolute;
+            left:3%;
+		}
+
+        #result-values2 {
+			position: absolute;
+            left:80%;
+            border: 4px solid green;
+			width: 200px;
+		}
+
+        #result-values p:nth-child(1) {
+            position: absolute;
+            color: rgb(42, 146, 56);
+            font-size: 15px;
+            top: 47%;
+            font-weight: bold;
+            right:58%;
+        }
+        #result-values p:nth-child(2) {
+            position: absolute;
+            color: rgb(42, 146, 56);
+            font-size: 15px;
+            top: 17%;
+            font-weight: bold;
+            right:58%;
+        }
+        #result-values p:nth-child(3) {
+            position: absolute;
+            color: rgb(42, 146, 56);
+            font-size: 15px;
+            top: 30%;
+            font-weight: bold;
+            right:48%;
+        }
+        #result-values p:nth-child(4) {
+            position: absolute;
+            color: rgb(42, 146, 56);
+            font-size: 15px;
+            top: 47%;
+            font-weight: bold;
+            right:46%;
+        }
+        #result-values p:nth-child(5) {
+            position: absolute;
+            color: rgb(42, 146, 56);
+            font-size: 15px;
+            top: 54%;
+            font-weight: bold;
+            right:53%;
+        }
+
+        #result-values p:nth-child(6) {
+            position: absolute;
+            color: rgb(42, 146, 56);
+            font-size: 15px;
+            top: 40%;
+            font-weight: bold;
+            right:53%;
+        }
+        .re{
+            position: absolute;
+            top:73%;
+            border: 4px solid green;
+			width: 145px;   
+            font-weight: bold; font-size: 18px; 
+            cursor: pointer;
+            display: inline-block;
+            left: 3%;
+            transform: translateY(-50%);
+        }
+        .re1{
+            position: absolute;
+            top:73%;
+            left: 25%;
+            border: 4px solid green;
+			width: 145px;   
+            font-weight: bold; font-size: 18px; 
+            cursor: pointer;
+            display: inline-block;
+            transform: translateY(-50%);
+        }
+
+        body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 20px;
+    }
+    #result-values1 {
+        margin: 0;
+        padding: 0;
+    }
+
+    p {
+        margin: 17px 17px;
+    }
+
+    .c{
+        color: rgb(146, 42, 132);
+        font-size: 18px;
+        font-weight: bold;
+		width: 700px; /* Adjust the width to match the input width */
+		margin: 7px; /* Add some margin around the labels */
+        height: 30px;
+    }
+    .c1{
+        color: rgb(42, 146, 56);
+        font-size: 18px; 
+        font-weight: bold;
+		width: 700px; /* Adjust the width to match the input width */
+		margin: 7px; /* Add some margin around the labels */
+        height: 30px;
+        
+
+    }
+    .high{
+        background-color: yellow;
+    }
+
+	</style>
+	<script type="text/javascript">
+        function updateImage() {
+            var s = document.getElementById("s").innerHTML;
+            var vi = document.getElementById("vi").innerHTML;
+            var hi = document.getElementById("hi").innerHTML;
+            var r = document.getElementById("r").innerHTML;
+            var z = document.getElementById("z").innerHTML;
+            var d = Math.sqrt(2 * (r * hi * vi) / (hi + ( z * vi)));
+            var img = document.getElementById("result-image");
+            img.src = "static/svg.jpg?s=" + s + "&vi=" + vi + "&hi=" + hi + "&r=" + r + "&h=" + h + "&z=" + z + "&d=" + d;
+            var img1 = document.getElementById("result-image1");
+            var fb = parseFloat(document.getElementById("fb").value);
+            var h = ((1 + fb / 100) * d).toFixed(2);
+            img1.src = "static/h.png?h=" + h;
+            document.getElementById("h-value").innerHTML = h;
+            document.getElementById("d").innerHTML = d.toFixed(2);
+            var B = document.getElementById("B").innerHTML;
+            var T = document.getElementById("T").innerHTML;
+            var a = document.getElementById("a").innerHTML;
+            var lbh = document.getElementById("lbh").innerHTML;
+            var vew = document.getElementById("vew").innerHTML;
+            var add20 = document.getElementById("add20").innerHTML;
+            var cost = document.getElementById("cost").innerHTML;
+            var zs = document.getElementById("zs").innerHTML;
+            var cbph = document.getElementById("cbph").innerHTML;
+            var w = document.getElementById("w").innerHTML;
+        }
+    </script>
+    
+</head>
+<body onload="updateImage()">
+
+        <div>
+            <div id="result-image-container">
+                <img id="result-image" src="" style="width: 100%; height: 100%; float: right;">
+            </div>
+
+            <div id="result-values">
+                <p>S = <span id="s" class="high">{{ s }}</span></p>
+                <p>VI = <span id="vi" class="high">{{ vi }}</span></p>
+                <p>HI = <span id="hi" class="high">{{ hi }}</span></p>
+                <p>H = <span id="h" class="high">{{ h }}</span></p>
+                <p>B = <span id="B" class="high">{{ B }}</span></p>
+                <p>T = <span id="T" class="high">{{ T }}</span></p>
+            </div>
+
+
+             <h1 style ="color: rgb(230, 175, 25); margin-left: 1%;">Design for Contour bund</h1>
+            <div id="result-values1">
+            <p class="c">Entered Slope(%): <span id="s">{{ s }}</span></p>
+            <p class="c">Entered Rainfall(cm): <span id="r">{{ r }}</span></p>
+            <p class="c">Entered Side slope of bund (Z) as per soil texture: <span id="z">{{ z }}</span></p>
+            <p class="c1">Depth of water behind Bund (m): <span id="d" class="high">{{ d }}</span></p>
+            <p class="c1">width between two bunds (m): <span id="w" class="high">{{ w }}</span></p>
+            <p class="c"><b>Entered Free Board (%): <span id="fb">{{ fb }}</span></b></p>
+            <p class="c"> <b>Entered Seepage line slope [Zs]: <span id="zs">{{ zs }}</span></b></p>
+            <p class="c1">Cross sectional area (m): <span id="a" class="high">{{ a }}</span></p>
+            <p class="c1">Length of the bond per ha (m): <span id="lbh" class="high">{{ lbh }}</span></p>
+            <p class="c1">Volume of earthwork(cumec): <span id="vew" class="high">{{ vew }}</span></p>
+            <p class="c1">Add 20 % extra for depresions(cumec): <span id="add20" class="high">{{ add20 }}</span></p>
+            <p class="c">Entered Cost of earth per cumec: <span id="cost">{{ cost }}</span></p>
+            <p class="c1">Cost of bund per ha(Rs): <span id="cbph" class="high">{{ cbph }}</span></p>
+        </div>
+
+<!-- result.html -->
+<a href="{{ url_for('page1') }}" >
+<button class="re">
+    Back </button></a>
+
+    <a href="{{ url_for('index') }}" >
+        <button class="re1">
+            Home </button></a>
+
+</body>
+</html>

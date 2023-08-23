@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Trench Bund Calculator</title>
+
+	<style type="text/css">
+
+.c{
+		color: rgb(47, 15, 230); 
+		font-size: 20px; 
+		font-weight: bold;
+		display: inline-block; /* Make the labels display inline with the inputs */
+		width: 300px; /* Adjust the width to match the input width */
+		margin: 5px; /* Add some margin around the labels */
+		
+	}
+
+	input[type="number"] {
+    box-sizing: 4%;
+	color: rgb(241, 11, 211); 
+	font-size: 20px; 
+	box-sizing: border-box;
+	border: 3px solid #161718;
+	margin-bottom: 4px;
+	padding: 4px;
+	width: 180px; /* Adjust the width to your desired size */
+	height: 30px; /* Adjust the height to your desired size */
+	margin: 5px; /* Add some margin around the input fields */
+	border-radius: 5px; /* Round the corners of the input fields */
+  }
+
+  form {
+			max-width: 100%;
+			margin: 0 auto;
+			font-family: Arial, sans-serif;
+		}
+
+		.calculator-button {
+			position: absolute;
+			top: 101.5%;
+			left: 6%;
+			transform: translate(-50%, -50%);
+			color: rgb(241, 8, 144);
+			border: 3px solid #161718;
+			font-weight: bold;
+			font-size: 18px;
+			cursor: pointer;
+			display: inline-block;
+			width: 150px; /* Adjust the width to match the input width */
+			margin: 5px; /* Add some margin around the labels */
+
+
+		}
+		.re {
+    position: absolute;
+    top: 102%;
+    left: 20%;
+    transform: translateY(-50%);
+    border: 4px solid green;
+    width: 145px;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.re1 {
+    position: absolute;
+    top: 102%;
+    left: 12%;
+    transform: translateY(-50%);
+    border: 4px solid green;
+    width: 145px;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+		
+	</style>
+
+
+</head>
+<body>
+	<h1 style ="color: rgb(240, 28, 9);"> Design for Trench bund</h1>
+	<form method="post">
+		<p>
+			<label class="c" for="p">One day maximum rainfall for 2 years return period(P)mm:</label>
+			<input type="number" step="0.01" name="p" autocomplete="on" required>
+		</p>
+		<p>   
+			<label class="c" for="v">% of direct runoff to be trapped(V)%:</label>
+			<input type="number" step="0.01" name="v" autocomplete="on" required>
+		</p>
+
+		<p>
+			<label class="c" for="si">Avarage slope of land(SI)%:</label>
+            <input type="number" step="0.01" name="si" autocomplete="on"  required>
+	    </p>
+
+		<p>
+			<label class="c" for="Dsoil">Soil depth(Dsoil)cm:</label>
+			<input type="number" step="0.01" name="Dsoil" autocomplete="on"  required>
+		</p>
+
+		<p>
+			<label class="c" for="Wplot">Width of plot(Wplot)m:</label>
+			<input type="number" step="0.01" name="Wplot" autocomplete="on"  required>
+		</p>
+		<p>
+			<label class="c" for="Lplot">Length of plot(Lplot)m:</label>
+			<input type="number" step="0.01" name="Lplot" autocomplete="on"  required>
+		</p>
+		<p>
+			<label class="c" for="PP">Plant-plant spacing(p-p)m:</label>
+			<input type="number" step="0.01" name="PP" autocomplete="on" required>
+		</p>
+		<p>
+			<label class="c" for="RR">Row-row spacing(R-R)m:</label>
+			<input type="number" step="0.01" name="RR" autocomplete="on" required>
+		</p>
+		<p>
+			<label class="c" for="cn2">Curve number(AMC-II)(CN2):</label>
+			<input type="number" step="0.01" name="cn2" autocomplete="on" required>
+		</p>
+		<p>
+			<label class="c" for="W">Trench width(W)cm</label>
+			<input type="number" step="0.01" name="W" autocomplete="on" required>
+		</p>
+		<p>
+			<label class="c" for="D">Trench depth(D)cm:</label>
+			<input type="number" step="0.01" name="D" autocomplete="on" required>
+		</p>
+		<p>
+			<label class="c" for="X">Gap between trenches(X)m:</label>
+			<input type="number" step="0.01" name="X" autocomplete="on" required>
+		</p>
+		<p>
+			<label class="c" for="L">Length of each trench(L)m:</label>
+			<input type="number" step="0.01" name="L" autocomplete="on" required>
+		</p>
+		<p>
+			<label class="c" for="RoEW">Rate of earth work:</label>
+			<input type="number" step="0.01" name="RoEW" autocomplete="on" required>
+		</p>
+		
+		<p>
+			<br><br>
+			<input type="submit" value="Calculate" class="calculator-button">
+		</p>
+		
+	</form>
+
+<script>
+// When the form is submitted, store the input values in a cookie
+document.querySelector('form').addEventListener('submit', function(event) {
+  const formData = new FormData(event.target);
+  for (const [name, value] of formData.entries()) {
+    document.cookie = `${name}=${encodeURIComponent(value)}`;
+  }
+});
+
+// When the page loads, retrieve the input values from the cookie and populate the form fields
+window.addEventListener('load', function() {
+  const inputs = document.querySelectorAll('input[type="number"]');
+  for (const input of inputs) {
+    const name = input.getAttribute('name');
+    const value = getCookie(name);
+    if (value) {
+      input.value = value;
+    }
+  }
+});
+
+// Helper function to retrieve a cookie value by name
+function getCookie(name) {
+  const cookies = document.cookie.split(';');
+  for (const cookie of cookies) {
+    const [cookieName, cookieValue] = cookie.trim().split('=');
+    if (cookieName === name) {
+      return decodeURIComponent(cookieValue);
+    }
+  }
+  return null;
+}
+
+
+
+		var form = document.querySelector('form');
+		form.addEventListener('submit', function() {
+			updateImage(0, 0, 0, 0);
+		});
+</script>
+
+
+<a href="{{ url_for('index') }}" >
+	<button class="re1">
+		Home </button></a>
+
+		<a href="{{ url_for('index1') }}" >
+			<button class="re">
+				Back </button></a>
+
+</body>
+</html>

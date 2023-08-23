@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contour bund calculator Results</title>
+	<style type="text/css">
+		#result-image-container {
+			position: absolute;
+			display: inline-block;
+            top: 10%;
+            right:10%;
+            width: 920px; /* Adjust the width to match the input width */
+			margin: 9px; /* Add some margin around the labels */
+
+		}
+
+        #result-values1 {
+			position: absolute;
+            left:3%;
+		}
+
+        #result-values2 {
+			position: absolute;
+            left:80%;
+            border: 8px solid green;
+			width: 200px;
+		}
+
+        #result-values p:nth-child(1) {
+            position: absolute;
+            color: rgb(42, 146, 56);
+            font-size: 15px;
+            top: 42%;
+            font-weight: bold;
+            right:32%;
+            
+        }
+        #result-values p:nth-child(2) {
+            position: absolute;
+            color: rgb(42, 146, 56);
+            font-size: 15px;
+            top: 18%;
+            font-weight: bold;
+            right:32%;
+        }
+
+        .re{
+            position: absolute;
+            top:90%;
+            border: 4px solid green;
+			width: 145px;   
+            font-weight: bold; font-size: 18px; 
+            cursor: pointer;
+            display: inline-block;
+            left: 3%;
+            transform: translateY(-50%);
+        }
+        .re1{
+            position: absolute;
+            top:90%;
+            left: 25%;
+            border: 4px solid green;
+			width: 145px;   
+            font-weight: bold; font-size: 18px; 
+            cursor: pointer;
+            display: inline-block;
+            transform: translateY(-50%);
+        }
+
+            body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 20px;
+    }
+    #result-values1 {
+        margin: 0;
+        padding: 0;
+    }
+
+    p {
+        margin: 40px 40px;
+    }
+    .c{
+        color: rgb(146, 42, 132);
+        font-size: 18px;
+        font-weight: bold;
+		width: 700px; /* Adjust the width to match the input width */
+		margin: 7px; /* Add some margin around the labels */
+        height: 30px;
+    }
+    .c1{
+        color: rgb(42, 146, 56);
+        font-size: 18px; 
+        font-weight: bold;
+		width: 700px; /* Adjust the width to match the input width */
+		margin: 7px; /* Add some margin around the labels */
+        height: 30px;
+        
+
+    }
+    .high{
+        background-color: yellow;
+    }
+
+	</style>
+	<script type="text/javascript">
+        function updateImage() {
+            var s = document.getElementById("s").innerHTML;
+            var vi = document.getElementById("vi").innerHTML;
+            var hi = document.getElementById("hi").innerHTML;
+            var r = document.getElementById("r").innerHTML;
+            var TL = document.getElementById("TL").innerHTML;
+            var h  =document.getElementById("h").innerHTML;
+            var img = document.getElementById("result-image");
+            img.src = "static/csbsvg.jpg?vi=" + vi + "&hi=" + hi; 
+            var img1 = document.getElementById("result-image1");
+            var h1 = document.getElementById("h1").innerHTML;
+            var thob = document.getElementById("thob").innerHTML;
+            var b = document.getElementById("b").innerHTML;
+            var Bt = document.getElementById("Bt").innerHTML;
+            var Af = document.getElementById("Af").innerHTML;
+            var As = document.getElementById("As").innerHTML;
+            var vocsb = document.getElementById("vocsb").innerHTML;
+            var ewif = document.getElementById("ewif").innerHTML;
+            var Ec = document.getElementById("Ec").innerHTML;
+            var sbc = document.getElementById("sbc").innerHTML;
+            var tec = document.getElementById("tec").innerHTML;
+        }
+    </script>
+    
+</head>
+<body onload="updateImage()">
+
+        <div>
+            <div id="result-image-container">
+                <img id="result-image" src="" style="width: 100%; height: 100%; float: right;">
+            </div>
+
+            <div id="result-values" >
+                <p>VI = <span id="vi" class="high">{{ vi }}</span></p>
+                <p>HI = <span id="hi" class="high">{{ hi }}</span></p>
+            </div>
+
+
+             <h1 style ="color: rgb(230, 175, 25); margin-left: 1%;">Design for Contour Stone Bund</h1>
+            <div id="result-values1">
+            <p class="c">Entered Slope(%): <span id="s">{{ s }}</span></p>
+            <p class="c">Entered Rainfall(mm): <span id="r">{{ r }}</span></p>
+            <p class="c1">Total length of the bund per ha: <span id="TL" class="high">{{ TL }}</span></p>
+            <p class="c">Entered height of the bund (h): <span id="h">{{ h }}</span></p>
+            <p class="c">Entered depth of foundation (h1): <span id="h1">{{ h1 }}</span></p>
+            <p class="c1"><b>Total height of the bund: <span id="thob" class="high">{{ thob }}</span></b></p>
+            <p class="c1">Base width of the bund (B): <span id="b" class="high">{{ b }}</span></p>
+            <p class="c">Entered assume top width of wall(BT): <span id="Bt">{{ Bt }}</span></p>
+            <p class="c1">Cross sectional area in foundation (Af): <span id="Af" class="high">{{ Af }}</span></p>
+            <p class="c1">Cross sectional area in super structure (As): <span id="As" class="high">{{ As }}</span></p>
+            <p class="c1">Volume of contour stone bund: <span id="vocsb" class="high">{{ vocsb }}</span></p>
+            <p class="c1">Earth work in foundation: <span id="ewif" class="high">{{ ewif }}</span></p>
+            <p class="c1">Estimate cost of E/W in foundation @ 250/m3 assumed: <span id="Ec" class="high">{{ Ec }}</span></p>
+            <p class="c1">Estimate cost ofstone bundconstruction @ 500/m3 assumed: <span id="sbc" class="high">{{ sbc }}</span></p>
+            <p class="c1">Total estimate cost of stone bund & foundation: <span id="tec" class="high">{{ tec }}</span></p>
+            
+
+        </div>
+    </div>
+
+
+    <!-- result.html -->
+<a href="{{ url_for('page2') }}" >
+    <button class="re">
+        Back </button></a>
+    
+        <a href="{{ url_for('index') }}" >
+            <button class="re1">
+                Home </button></a>
+    
+
+
+</body>
+</html>
