@@ -32,62 +32,6 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
     <style>
-        .containerz1 {
-    background-color: #fff;
-    width: 100%;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    display: inline-block;
-}
-
-h1 {
-    color: #333;
-    font-size: 20px;
-}
-
-.input-container {
-    display: inline-block;
-    margin: 10px;
-    position: relative;
-    transition: border-color 0.3s, box-shadow 0.3s; /* Add transitions for border color and box shadow */
-    transform: scale(1); /* Initial scale, 1 means no scaling */
-}
-
-.input-container:hover {
-    transform: scale(1.05); /* Zoom in by 5% on hover */
-}
-
-input {
-    width: 100%;
-
-    padding: 10px;
-    margin: 10px;
-border:solid 2px rgb(230, 230, 230);
-    border-radius: 5px;
-    font-size: 16px;
-    transition: border-color 0.3s, box-shadow 0.3s, border-bottom-width 0.3s; /* Add transition for border bottom width */
-}
-
-input:focus {
-
-    border-color: #3498db;
-    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
-    border-bottom: 2px solid #3498db; /* Increase border-bottom width on focus */
-}
-
-.error-message {
-    color: #e74c3c;
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-}
-
-
          .header {
             font-family: poppins;
             padding: 10px 0px;
@@ -100,12 +44,12 @@ input:focus {
         }
 .main-menu ul li a {
     line-height: 20px;
-    font-size: 16px;
+    font-size: 18px;
     display: block;
-    font-weight: 500;
+    font-weight: 700;
     color: #fff;
     padding: 19px 17px;
-    width: 160px;
+    width: 250px;
     white-space: nowrap;
     border-right: solid #119711 1px;
 }
@@ -184,139 +128,328 @@ nav.main-menu {
   background-color: #04AA6D;
   color: white;
 }
-.button-container {
-    margin-top: 20px;
-    text-align: left;
-    display: inline-block;
-    width: 100%;
-}
-        .spnx {
-            background-color: #b1449f;
-            color: white;
-            padding: 5px;
-            border-radius: 5px;
+.cube {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: spin 5s infinite linear;
         }
 
-.calculator-button{
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    margin: 0 10px; /* Add margin between buttons */
-	font-weight: bold;
-	font-size: 18px;
-	cursor: pointer;
-	width: 150px; /* Adjust the width to match the input width */
+        .face {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: rgba(0, 120, 255, 0.7);
+            border: 2px solid #fff;
+        }
 
-}
+        .front  { transform: rotateY(0deg) translateZ(50px); }
+        .back   { transform: rotateY(180deg) translateZ(50px); }
+        .left   { transform: rotateY(-90deg) translateZ(50px); }
+        .right  { transform: rotateY(90deg) translateZ(50px); }
+        .top    { transform: rotateX(90deg) translateZ(50px); }
+        .bottom { transform: rotateX(-90deg) translateZ(50px); }
 
-.calculator-button:hover {
-    background-color: #2980b9;
-}
+        @keyframes spin {
+            from { transform: rotateY(0deg); }
+            to { transform: rotateY(360deg); }
+        }
 
-#refresh-button {
-    background-color: #27ae60; /* Green color for refresh button */
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    margin: 0 10px; /* Add margin between buttons */
-}
-
-#close-button {
-    background-color: #e74c3c; /* Red color for close button */
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    margin: 0 10px; /* Add margin between buttons */
-}
-.report {
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-  
-    border-radius: 5px;
-}
-/* #report-section {
-    display: none; Initially hide the report section */
-/* } */
-/* #report-sectionx {
-    display: none; /* Initially hide the report section */
-/* } */ */
-h1 {
+        .animated-button {
+        display: inline-block;
+        padding: 20px 40px;
+        font-size: 24px;
+        background: linear-gradient(4deg, #3498db, #2ecc71);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 15px;
+        transition: background 0.3s ease, transform 0.3s ease;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        background-size: 200% 100%;
+        animation: gradientAnimation 5s linear infinite;
+        width: 30%;
+    margin: 20px;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 1px;
+    text-transform: uppercase;
     text-align: center;
-    color: #3498db; /* Blue color for the title */
-    font-size: 28px;
-    margin-bottom: 20px;
-}
 
-.section {
-    margin-bottom: 20px;
-    padding: 10px;
-    box-shadow: 0 0 10px rgb(133 134 139 / 50%);
-    margin: 10px;
-    display: inline-block;
-    width: 600px;
-}
+    height: 200px;
+    border: solid 6px;
+    }
+    .animated-button1 {
+        display: inline-block;
+        padding: 20px 40px;
+        font-size: 24px;
+        background: linear-gradient(4deg, #a534db, #2e90cc);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 15px;
+        transition: background 0.3s ease, transform 0.3s ease;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        background-size: 200% 100%;
+        animation: gradientAnimation 5s linear infinite;
+        width: 30%;
+    margin: 20px;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+    
+    height: 200px;
+    border: solid 6px;
+    }
 
-        h2 {
-            color: #fff;
-            font-size: 20px;
-            margin-bottom: 10px;
-            background-color: #635dc5;
-            padding: 5px;
-            width: 100%;
-            /* border-radius: 5px; */
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
+    .animated-button2 {
+        display: inline-block;
+        padding: 20px 40px;
+        font-size: 24px;
+        background: linear-gradient(4deg, #d6db34, #d23e07);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 15px;
+        transition: background 0.3s ease, transform 0.3s ease;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        background-size: 200% 100%;
+        animation: gradientAnimation 5s linear infinite;
+        width: 30%;
+    margin: 20px;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+    
+    height: 200px;
+    border: solid 6px;
+    }
+    .animated-button3 {
+        display: inline-block;
+        padding: 20px 40px;
+        font-size: 24px;
+        background: linear-gradient(4deg, #34d3db, #077dd2);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 15px;
+        transition: background 0.3s ease, transform 0.3s ease;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        background-size: 200% 100%;
+        animation: gradientAnimation 5s linear infinite;
+        width: 30%;
+    margin: 20px;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+    
+    height: 200px;
+    border: solid 6px;
+    }
+    .animated-button4 {
+        display: inline-block;
+        padding: 20px 40px;
+        font-size: 24px;
+        background: linear-gradient(4deg, #676042, #305564);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 15px;
+        transition: background 0.3s ease, transform 0.3s ease;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        background-size: 200% 100%;
+        animation: gradientAnimation 5s linear infinite;
+        width: 30%;
+    margin: 20px;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+    
+    height: 200px;
+    border: solid 6px;
+    }
+    .animated-button5 {
+        display: inline-block;
+        padding: 20px 40px;
+        font-size: 24px;
+        background: linear-gradient(4deg, #bb7f0f, #863104);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 15px;
+        transition: background 0.3s ease, transform 0.3s ease;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        background-size: 200% 100%;
+        animation: gradientAnimation 5s linear infinite;
+        width: 30%;
+    margin: 20px;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+    
+    height: 200px;
+    border: solid 6px;
+    }
+    .animated-button6 {
+        display: inline-block;
+        padding: 20px 40px;
+        font-size: 24px;
+        background: linear-gradient(4deg, #37a802, #01364f);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 15px;
+        transition: background 0.3s ease, transform 0.3s ease;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        background-size: 200% 100%;
+        animation: gradientAnimation 5s linear infinite;
+        width: 30%;
+    margin: 20px;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+    
+    height: 200px;
+    border: solid 6px;
+    }
+    .animated-button7 {
+        display: inline-block;
+        padding: 20px 40px;
+        font-size: 24px;
+        background: linear-gradient(4deg, #6f02f3, #5d0148);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 15px;
+        transition: background 0.3s ease, transform 0.3s ease;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        background-size: 200% 100%;
+        animation: gradientAnimation 5s linear infinite;
+        width: 30%;
+    margin: 20px;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+    
+    height: 200px;
+    border: solid 6px;
+    }
+    .animated-button8 {
+        display: inline-block;
+        padding: 20px 40px;
+        font-size: 24px;
+        background: linear-gradient(4deg, #48836d, #353e42);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 15px;
+        transition: background 0.3s ease, transform 0.3s ease;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        background-size: 200% 100%;
+        animation: gradientAnimation 5s linear infinite;
+        width: 30%;
+    margin: 20px;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+    
+    height: 200px;
+    border: solid 6px;
+    }
+    /* Add an animation to the gradient */
+    @keyframes gradientAnimation {
+        0% {
+            background-position: 200% 0;
         }
+        100% {
+            background-position: -200% 0;
+        }
+    }
 
-p {
-    font-size: 18px;
-    line-height: 1.5;
-    color: #555;
-    font-weight:600;
-}
+    /* Apply the animation on hover */
+    .animated-button:hover {
+        box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+        transform: scale(1.05);
+    }
+    .animated-button1:hover {
+        box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+        transform: scale(1.05);
+    }
 
-/* Add hover effect for sections */
-.section:hover {
-    background-color: #f0f0f0; /* Light gray background on hover */
-    transition: background-color 0.3s;
-}
+    .animated-button2:hover {
+        box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+        transform: scale(1.05);
+    }
 
+    .animated-button3:hover {
+        box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+        transform: scale(1.05);
+    }
 
+    .animated-button4:hover {
+        box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+        transform: scale(1.05);
+    }
 
-/* Apply the animation to specific elements */
-.section p {
-    animation: textAnimation 0.5s ease-in-out;
-}
-@keyframes textAnimation {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-}
+    .animated-button5:hover {
+        box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+        transform: scale(1.05);
+    }
 
-#printButton {
-    background-color: #520cd4; /* Green color for refresh button */
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    margin: 0 10px; /* Add margin between buttons */
-    margin-left: 50%;
-}
+    .animated-button6:hover {
+        box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+        transform: scale(1.05);
+    }
 
+    .animated-button7:hover {
+        box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+        transform: scale(1.05);
+    }
+    .text-animation {
+        animation: textFadeIn 3s steps(1) infinite;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 0;
+    }
 
+    @keyframes textFadeIn {
+        0% {
+            width: 0;
+        }
+        100% {
+            width: 100%;
+        }
+    }
 
+        /* Define the pulse animation */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
     </style>
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -326,9 +459,9 @@ p {
 
 <body class="main-layout ">
     <!-- loader  -->
-    <!-- <div class="loader_bg">
+    <div class="loader_bg">
         <div class="loader"><img src="{{ url_for('static', filename='images/loading.gif') }}" alt="#" /></div>
-    </div> -->
+    </div>
     <!-- end loader -->
     <!-- header -->
     <header>
@@ -485,262 +618,53 @@ p {
         </div>
         <!-- end header inner -->
     </header>
-    <!-- end header -->
-
+   
     <!-- about -->
     <div id="about" class="about">
         
-        <div class="containerz1" >
-            <form method="post" id="contourForm">
-            <h1>Enter Parameters for Contour Stone Bunding</h1>
-                <div class="input-container">
-                <input type="number" name="s" placeholder="Land Slope (%)" step="0.001" required>
-                <div class="error-message" id="land-slope-error">Please enter a valid slope percentage.</div>
+        <div class="container" style="width: 90%;">
+            <div class="row">
+                <h1 style="font-size: 40px;">Drainage Line Treatment</h1>
+               <div class="col-md-12">
+           
+             
+                <button class="animated-button" id="revealButton" onclick="window.location.href = '{{ page1_url3 }}';"><i class="fas fa-water" style="    text-shadow: 2px 2px 4px rgb(0 0 0 / 84%);display: block;font-size: 81px;"></i>&nbsp; <span class="text-animation" id="spnx1">BCD/LBCD/GS</span></span></button>
+               
+                <!-- <button class="animated-button1" id="revealButton1" onclick="window.location.href = '{{page4_url}}';"><i class="fas fa-file-contract"  style="    text-shadow: 2px 2px 4px rgb(0 0 0 / 84%);display: block;font-size: 81px;"></i>&nbsp;<span class="text-animation" id="spnx2">Trench bund</span> </button>
+                <button class="animated-button2" onclick="window.location.href = '{{ page2_url }}';" id="revealButton2"><i class="fas fa-door-open" style="    text-shadow: 2px 2px 4px rgb(0 0 0 / 84%);display: block;font-size: 81px;"></i>&nbsp;<span class="text-animation" id="spnx3">Contour Stone Bunding</span></button>
+                <div class="col-md-12">
+                    <button class="animated-button3" id="revealButton1" onclick="window.location.href ='{{ page7_url }}';"><i class="fas fa-file-archive" style="    text-shadow: 2px 2px 4px rgb(0 0 0 / 84%);display: block;font-size: 81px;"></i>&nbsp; <span class="text-animation" id="spnx11">Field Bunding </span></span></button>
+                   
+                    <button class="animated-button4" id="revealButton11" onclick="window.location.href ='{{ page5_url }}';"><i class="fas fa-door-open" style="    text-shadow: 2px 2px 4px rgb(0 0 0 / 84%);display: block;font-size: 81px;"></i> &nbsp;<span class="text-animation" id="spnx21">Terrace Design</span> </button>
+                    <button class="animated-button5" id="revealButton21" onclick="window.location.href ='{{ page1_url }}';"><i class="fas fa-file-medical-alt" style="    text-shadow: 2px 2px 4px rgb(0 0 0 / 84%);display: block;font-size: 81px;"></i>&nbsp;<span class="text-animation" id="spnx31">Contour bund</span></button>
+                    <div class="col-md-12">
+                        <button class="animated-button5" id="revealButton21" onclick="window.location.href ='#';"><i class="fas fa-file-medical-alt" style="    text-shadow: 2px 2px 4px rgb(0 0 0 / 84%);display: block;font-size: 81px;"></i>&nbsp;<span class="text-animation" id="spnx31">Strengthening of Field Bund</span></button>
+                       
+                        <button class="animated-button7" id="revealButton12"><i class="fas fa-file-archive" style="    text-shadow: 2px 2px 4px rgb(0 0 0 / 84%);display: block;font-size: 81px;"></i>&nbsp;<span class="text-animation" id="spnx22">Lined OFR</span> </button>
+                        <button class="animated-button8" id="revealButton22"><i class="fas fa-file-signature" style="    text-shadow: 2px 2px 4px rgb(0 0 0 / 84%);display: block;font-size: 81px;"></i>&nbsp;<span class="text-animation" id="spnx32">Lined Pond</span></button>
+             -->
+               </div>
             </div>
-            <div class="input-container">
-                <input type="number" name="r" placeholder="Rainfall (mm)" step="0.001" required>
-                <div class="error-message" id="rainfall-error">Please enter a valid rainfall amount.</div>
-            </div>
-            <div class="input-container">
-                <input type="number" name="h" placeholder="Height of the Bund (m)" step="0.001"  required>
-                <div class="error-message" id="bund-height-error">Please enter a valid height.</div>
-            </div>
-            <div class="input-container">
-                <input type="number" name="h1" placeholder="Depth of Foundation (m)" step="0.001"  required>
-                <div class="error-message" id="foundation-depth-error">Please enter a valid depth.</div>
-            </div>
-            <div class="input-container">
-                <input type="number" name="Bt" placeholder="Top Width of Wall (m)" step="0.001"  required>
-                <div class="error-message" id="wall-width-error">Please enter a valid width.</div>
-            </div>
-        
-            <div class="button-container">
-               <!-- <button id="calculate-button" type="button">Calculate</button> -->
-                <button id="close-button">Close</button>
-                <input type="submit" value="Calculate" class="calculator-button">
-                
-            </div>
-           </form>
-          
         </div>
-        </div>
-        <script>// script.js
-            // script.js
-                  // document.getElementById('closeButton').addEventListener('click', function() {
-                  //     // Instead of closing the window, you could redirect to another page
-                  //     window.location.href = 'http://127.0.0.1:5000/';
-          
-                  // });
-          
-                  document.addEventListener('DOMContentLoaded', function () {
-              // Get the close button element
-              var closeButton = document.getElementById('close-button');
-          
-              // Add a click event listener to the close button
-              closeButton.addEventListener('click', function () {
-                  // Add the closing class to initiate the animation
-                  var buttonContainer = document.querySelector('.button-container');
-                  buttonContainer.classList.add('closing');
-          
-                  // Set a timeout to perform the closing action after the animation is complete
-                  setTimeout(function () {
-                      // Perform your closing action here (e.g., window.close())
-                      // For demonstration purposes, let's just redirect to a new page
-                      window.location.href = 'http://127.0.0.1:5000/index';
-                  }, 500); // Adjust the timeout duration to match the animation duration
-              });
-          });
-          
-          
-          
-                  </script>
-        
-
-
-<script>
-    function printReport() {
-        // Get the print button and put it into a variable
-        var printButton = document.getElementById('printButton');
-        // Set the print button visibility to 'hidden'
-        printButton.style.visibility = 'hidden';
-
-        // Create a new window and set its content to the report section
-        var printWindow = window.open('', '_blank');
-        printWindow.document.write('<html><head><title>Print Report</title>');
-
-        // Copy the styles from your existing stylesheets or style tags
-        var styles = document.querySelectorAll('style, link[rel="stylesheet"]');
-        styles.forEach(function (style) {
-            printWindow.document.head.appendChild(style.cloneNode(true));
-        });
-
-        printWindow.document.write('</head><body>');
-
-        // Include the image directly in the print window
-        var imageSrc = document.querySelector('.report1 img').src;
-        printWindow.document.write('<img src="' + imageSrc + '">');
-
-        // Copy the content of the report section
-        var printContent = document.querySelector('.containerz1').innerHTML;
-        printWindow.document.write(printContent);
-
-        printWindow.document.write('</body></html>');
-
-        // Print and close the new window
-        printWindow.document.close();
-        printWindow.print();
-        printWindow.close();
-
-        printButton.style.visibility = 'visible';
-    }
-</script>
-        
-
-   
-
-
-    
-
-            
-         {% if s %}
-         <div class="report1">
-        <div class="containerz1">
-            
-            <!-- Your result sections here -->
-            <div class="report">
-                <h1>Design and Estimate on Contour Stone Bunding</h1>
-                <div class="section">
-                    <h2>Land Slope (%)</h2>
-                    <p>Entered value: <span  class="spnx" id="s" > {{ s }} </span></p>
-                </div>
-                <div class="section">
-                    <h2>Vertical Interval (m)</h2>
-                    <p>Evaluated value: <span class="spnx" id="vi">{{ vi }}</span></p>
-                </div>
-                <div class="section">
-                    <h2>Horizontal Interval (m)</h2>
-                    <p>Evaluated value: <span class="spnx" id="hi">{{ hi }}</span></p>
-                </div>
-                <div class="section">
-                    <h2>Enter rainfall (mm)</h2>
-                    <p>Entered Value: <span class="spnx" id="r">{{ r }}</span></p>
-                </div>
-        
-                <div class="section">
-                    <h2>Total length of the bund per ha (m)</h2>
-                    <p>Evaluated value: <span class="spnx" id="TL">{{ TL }}</span></p>
-                </div>
-                <div class="section">
-                    <h2>Height of the bund (m)</h2>
-                    <p>Entered value: <span class="spnx" id="h">{{ h }}</span></p>
-                </div>
-                <div class="section">
-                    <h2>Depth of foundation (m)</h2>
-                    <p>Entered value: <span class="spnx" id="h1">{{ h1 }}</span></p>
-                </div>
-                <div class="section">
-                    <h2>Total height of the bund (m)</h2>
-                    <p>Evaluated value: <span class="spnx" id="thob">{{ thob }}</span></p>
-                </div>
-                <div class="section">
-                    <h2>Base width of the bund (B)</h2>
-                    <p>Evaluated value: <span class="spnx" id="b">{{ b }}</span></p>
-                </div>
-                <div class="section">
-                    <h2>Assume top width of wall (m)</h2>
-                    <p>Evaluated value: <span class="spnx" id="Bt">{{ Bt }}</span></p>
-                </div>
-                <div class="section">
-                    <h2>Cross-sectional area in foundation (Af)</h2>
-                    <p>Evaluated value: <span class="spnx" id="Af">{{ Af }}</span></p>
-                </div>
-                <div class="section">
-                    <h2>Cross-sectional area in superstructure (As)</h2>
-                    <p>Evaluated value: <span class="spnx" id="As">{{ As }}</span></p>
-                </div>
-                <div class="section">
-                    <h2>Volume of contour stone bund (cumec)</h2>
-                    <p>Evaluated value: <span class="spnx" id="vocsb">{{ vocsb }}</span></p>
-                </div>
-        
-                <div class="section">
-                    <h2>Earth work in foundation</h2>
-                    <p>Evaluated value: <span class="spnx" id="ewif">{{ ewif }}</span></p>
-                </div>
-                <div class="section">
-                    <h2>Estimate cost of E/W in foundation @ 250/m3 assumed (Rs.)</h2>
-                    <p>Evaluated value: <span class="spnx" id="Ec">{{ Ec }}</span></p>
-                </div>
-                <div class="section">
-                    <h2>Estimate cost of stone bund construction @ 500/m3 assumed (Rs.)</h2>
-                    <p>Evaluated value: <span class="spnx" id="sbc">{{ sbc }}</span></p>
-                </div>
-                <div class="section">
-                    <h2>Total estimated cost of stone bund & foundation (Rs.)</h2>
-                    <p>Evaluated value: <span class="spnx" id="tec">{{ tec }}</span></p>
-                </div>
-            </div>
-
-        
-
-    <div class="containerz1" style="text-align: left;">
-        <span style="
-           position: relative;
-    display: inline;
-    top: 256px;
-    width: 100%;
-    left: 671px;
-    border-radius: 3px;
-    color: #ffc927;
-    padding: 4px;
-    font-weight: bold;
-    font-size: 14px;
-    background-color: #097070;
-        ">VI : {{vi}}(m)</span>
-        <span id="shi" style="
-               position: relative;
-    display: inline;
-    top: 423px;
-    left: 570px;
-    border-radius: 3px;
-    color: #ffc927;
-    padding: 4px;
-    font-weight: bold;
-    font-size: 14px;
-    background-color: #097070;
-        ">HI : {{hi}}(m)</span>
-        <div style="
-        width: 1800px;
-        height: 750px;
-        background-size: contain;
-        background-repeat: no-repeat;" ><img src="{{ url_for('static', filename='svg.png') }}"></div>
-        
-<div class="button-container">
-    <button id="printButton" onclick="printReport()">Print Report</button>
     </div>
-</div>     
 
-</div>
-{% endif %}
-</div>     
-          
-
- 
+     
+    <footr style="position: fixed;
+width: 100%;
+bottom: 0px;">
 
 
-
-   <footr style="position: fixed;
-    width: 100%;
-    bottom: 0px;"> 
         <div class="copyright">
             <div class="container">
                 <p>© 2023 All Rights Reserved. Developed & Maintained by<a href="#"> Odisha University of Agriculture and Technology</a></p>
-           
-        </div>
+
+            </div>
         </div>
     </footr>
 
-
+    <!-- end footer -->
+    <!-- Javascript files-->
+    <script src="{{ url_for('static', filename='cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.html') }}"></script>
     <!-- end footer -->
     <!-- Javascript files-->
     <script data-cfasync="false" src="{{ url_for('static', filename='../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js') }}"></script><script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
@@ -753,8 +677,7 @@ p {
     <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
     <!-- javascript -->
     <script src="{{ url_for('static', filename='js/owl.carousel.html') }}"></script>
- 
-    
+
   </body>
 
 

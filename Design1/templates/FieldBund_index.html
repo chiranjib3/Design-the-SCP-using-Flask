@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>home page</title>
+        <!-- basic -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- mobile metas -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+        <!-- site metas -->
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <!-- bootstrap css -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <!-- style css -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <!-- Responsive-->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+        <!-- fevicon -->
+        <link rel="icon" href="{{ url_for('static', filename='images/fevicon.html') }}" type="image/gif" />
+        <!-- Scrollbar Custom CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/jquery.mCustomScrollbar.min.css') }}">
+        <!-- Tweaks for older IEs -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='../../../netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css') }}">
+        <!-- owl stylesheets -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='../../../cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.theme.default.min.html') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='../../../cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css') }}">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <style>
+            .containerz1 {
+        background-color: #fff;
+        width: 100%;
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        display: inline-block;
+    }
+    
+    h1 {
+        color: #333;
+        font-size: 20px;
+    }
+    
+    .input-container {
+        display: inline-block;
+        margin: 30px;
+        padding: 17px;
+        position: relative;
+        transition: border-color 0.3s, box-shadow 0.3s; /* Add transitions for border color and box shadow */
+        transform: scale(1); /* Initial scale, 1 means no scaling */
+        text-align: center;
+    }
+    
+    .input-container:hover {
+        transform: scale(1.05); /* Zoom in by 5% on hover */
+    }
+    
+    .input1 {
+        position: static;
+        padding: 10px;
+        margin: -7px;
+        border:solid 2px rgb(230, 230, 230);
+        border-radius: 5px;
+        font-size: 18px;
+        transition: border-color 0.3s, box-shadow 0.3s, border-bottom-width 0.3s; /* Add transition for border bottom width */
+        line-height: 2;
+    }
+    
+    .input1:focus {
+    
+        border-color: #3498db;
+        box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+        border-bottom: 2px solid #3498db; /* Increase border-bottom width on focus */
+    }
+    
+    .input2 {
+        padding: 0px;
+        margin: 2px;
+        border:solid 2px rgb(230, 230, 230);
+        border-radius: 5px;
+        font-size: 18px;
+        transition: border-color 0.3s, box-shadow 0.3s, border-bottom-width 0.3s; /* Add transition for border bottom width */
+        line-height: 2;
+        white-space: pre-line;
+        text-align: center;
+        
+    }
+    
+    .input3 {
+        padding: 10px;
+        margin: -7px;
+        border:solid 2px rgb(230, 230, 230);
+        border-radius: 5px;
+        font-size: 18px;
+        transition: border-color 0.3s, box-shadow 0.3s, border-bottom-width 0.3s; /* Add transition for border bottom width */
+        line-height: 2;
+    }
+    
+    .input3:focus {
+    
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+    border-bottom: 2px solid #3498db; /* Increase border-bottom width on focus */
+    }
+    
+    .input2:focus {
+    
+        border-color: #3498db;
+        box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+        border-bottom: 2px solid #3498db; /* Increase border-bottom width on focus */
+    }
+    
+    select {
+        position: static;
+        width: 340px;
+        padding: 17px;
+        margin: -38px;
+        border:solid 2px rgb(230, 230, 230);
+        border-radius: 5px;
+        font-size: 16px;
+        transition: border-color 0.3s, box-shadow 0.3s, border-bottom-width 0.3s; /* Add transition for border bottom width */
+      
+    }
+    
+    select:focus {
+    
+        border-color: #3498db;
+        box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+        border-bottom: 2px solid #3498db; /* Increase border-bottom width on focus */
+    }
+    
+    .short {
+        position: absolute;
+        white-space: pre-line;
+        
+    
+    
+    }
+    
+    option:focus {
+    
+        border-color: #3498db;
+        box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+        border-bottom: 2px solid #3498db; /* Increase border-bottom width on focus */
+    }
+    
+    
+    .error-message {
+        color: #e74c3c;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+    }
+    
+    .header {
+                font-family: poppins;
+                padding: 10px 0px;
+                background: #f6fbf1;
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+                background-position: center center;
+                height: 180px;
+                
+            }
+    .main-menu ul li a {
+        line-height: 20px;
+        font-size: 16px;
+        display: block;
+        font-weight: 500;
+        color: #fff;
+        padding: 19px 17px;
+        width: 160px;
+        white-space: nowrap;
+        border-right: solid #119711 1px;
+    }
+    .banner-main .carousel-caption p {
+        font-size: 25px;
+        line-height: 31px;
+        padding: 6px 0px 50px 0px;
+        padding: 20px;
+        background-color: #00000061;
+    }
+    .location_icon_bottum {
+        position: relative;
+        z-index: 999;
+        background: #6fa704;
+        margin-left: 31px;
+        top: 0;
+        margin-bottom: -66px;
+        border-radius: 10px;
+        /* border-top-left-radius: 20px; */
+       
+        
+    }
+    nav.main-menu {
+        float: left;
+        margin-left: 0;
+    }
+    
+    .location_icon_bottum::before {
+        position: absolute;
+        content: "";
+        top: 0px;
+       background: none; 
+        background-repeat: repeat;
+        width: 67px;
+        height: 67px;
+        background-repeat: no-repeat;
+        left: -35px;
+    }
+    .logo {
+        float: left;
+        position: relative;
+        padding-top: 2px;
+        width: 100%;
+        text-align: center;
+    }
+    .main-menu ul {
+        margin: 0;
+        list-style-type: none;
+        margin-bottom: 0px;
+    }
+    @media (min-width: 1200px)
+    {
+        .container {
+        max-width: 100%;
+    }
+    }
+    #customers {
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    #customers td, #customers th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    
+    #customers tr:nth-child(even){background-color: #f2f2f2;}
+    
+    #customers tr:hover {background-color: #ddd;}
+    
+    #customers th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #04AA6D;
+      color: white;
+    }
+    .button-container {
+        margin-top: 20px;
+        text-align: left;
+        display: inline-block;
+        width: 100%;
+    }
+            .spnx {
+                background-color: #b1449f;
+                color: white;
+                padding: 5px;
+                border-radius: 5px;
+            }
+    
+    .calculator-button{
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+        margin: 0 10px; /* Add margin between buttons */
+        font-weight: bold;
+        font-size: 18px;
+        cursor: pointer;
+        width: 150px; /* Adjust the width to match the input width */
+    
+    }
+    
+    .calculator-button:hover {
+        background-color: #2980b9;
+    }
+    
+    #refresh-button {
+        background-color: #27ae60; /* Green color for refresh button */
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        margin: 0 10px; /* Add margin between buttons */
+    }
+    
+    #close-button {
+        background-color: #e74c3c; /* Red color for close button */
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        margin: 0 10px; /* Add margin between buttons */
+    }
+    .report {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+      
+        border-radius: 5px;
+    }
+    /* #report-section {
+        display: none; Initially hide the report section */
+    /* } */
+    /* #report-sectionx {
+        display: none; /* Initially hide the report section */
+    /* } */ */
+    h1 {
+        text-align: center;
+        color: #3498db; /* Blue color for the title */
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+    
+    .section {
+        margin-bottom: 20px;
+        padding: 10px;
+        box-shadow: 0 0 10px rgb(133 134 139 / 50%);
+        margin: 10px;
+        display: inline-block;
+        width: 600px;
+    }
+    
+            h2 {
+                color: #fff;
+                font-size: 20px;
+                margin-bottom: 10px;
+                background-color: #635dc5;
+                padding: 5px;
+                width: 100%;
+                /* border-radius: 5px; */
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+            }
+    
+    p {
+        font-size: 18px;
+        line-height: 1.5;
+        color: #555;
+        font-weight:600;
+    }
+    
+    /* Add hover effect for sections */
+    .section:hover {
+        background-color: #f0f0f0; /* Light gray background on hover */
+        transition: background-color 0.3s;
+    }
+    
+    
+    
+    /* Apply the animation to specific elements */
+    .section p {
+        animation: textAnimation 0.5s ease-in-out;
+    }
+    @keyframes textAnimation {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+    }
+    
+    .p {
+        font-size: 18px;
+        line-height: 1.5;
+        color: #555;
+        font-weight:600;
+    }
+    input::placeholder {
+    white-space: pre-line;
+    font-size: 0.85em;
+    position: absolute;
+    
+    
+    }
+    .x{
+    
+    font-size: 1.1em;
+    color: #5e5c5c;
+    }
+    .x option{
+    white-space: pre-line;
+    text-align: center;
+    }
+    .length{
+    position: static;
+        padding: 10px;
+        margin: -68px;
+        border:solid 2px rgb(230, 230, 230);
+        border-radius: 5px;
+        font-size: 18px;
+        transition: border-color 0.3s, box-shadow 0.3s, border-bottom-width 0.3s; /* Add transition for border bottom width */
+        line-height: 2;
+    }
+    .length1{
+    position: static;
+        padding: 10px;
+        margin: -7px;
+        border:solid 2px rgb(230, 230, 230);
+        border-radius: 5px;
+        font-size: 18px;
+        transition: border-color 0.3s, box-shadow 0.3s, border-bottom-width 0.3s; /* Add transition for border bottom width */
+        line-height: 2;
+        width: 120%;
+    }
+
+    .length:focus {
+    
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+    border-bottom: 2px solid #3498db; /* Increase border-bottom width on focus */
+}
+
+.length1:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+    border-bottom: 2px solid #3498db; /* Increase border-bottom width on focus */
+}
+
+#printButton {
+    background-color: #520cd4; /* Green color for refresh button */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 10px; /* Add margin between buttons */
+    margin-left: 50%;
+}
+
+    
+    
+    
+    
+        </style>
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    </head>
+    <!-- body -->
+    
+    <body>
+        <!-- loader  -->
+        <!-- <div class="loader_bg">
+            <div class="loader"><img src="{{ url_for('static', filename='images/loading.gif') }}" alt="#" /></div>
+        </div> -->
+        <!-- end loader -->
+        <!-- header -->
+        <header>
+            <!-- header inner -->
+            <div class="header">
+    
+                <div class="container" style="padding-right: 0px; 
+                 padding-left: 0px;">
+                    <div class="row" style="margin-top: 20px;">
+                        <div class="col-md-1 col-sm-12 col logo_section">
+                            <div class="full">
+                                <div class="center-desk">
+                                    <div class="logo">
+                                        <a href=""><img src="{{ url_for('static', filename='logo_0.png') }}" style="height: 81px;" alt="#"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="col-xl-9 col-lg-8 col-md-8 col-sm-8">
+                            <div class="location_icon_bottum_tt">
+                                <h2 style="color:black; text-transform: uppercase; text-align: center;     font-size: 30px;
+                                font-weight: bold;    background-color: transparent;">
+                                    REWARD - Hydrology
+                                </h2>
+                                <h3 style="color:rgb(88 2 166); text-transform: uppercase; text-align: center; font-weight: 800;font-size: 26px;
+                                letter-spacing: 1px;">
+                                    Rejuvenating Watersheds for Agricultural Resilience through Innovative Development
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="col-md-1 col-sm-12 col logo_section">
+                            <div class="full">
+                                <div class="center-desk">
+                                    <div class="logo">
+                                        <a href="{{ url_for('static', filename='index-2.html') }}"><img src="{{ url_for('static', filename='images/world_bank_logo.png') }}" style="height: 81px;" alt="#"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1 col-sm-12 col logo_section">
+                            <div class="full">
+                                <div class="center-desk">
+                                    <div class="logo">
+                                        <a href="index-2.html"><img src="{{ url_for('static', filename='Seal_of_Odisha.png') }}" style="height: 81px;" alt="#"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                    </div>
+                    <div cl="row">
+                        
+                    </div>
+                    <div class="container" style="padding-right: 0px; 
+                    padding-left: 0px;">
+                        <div class="col-md-12" style="z-index: 999;
+                        background: #6fa704;
+                        margin-bottom: -66px;
+                        box-shadow: inset 2px 59px 0px -15px #18b500;
+                        background-color: #07a847;
+                        
+                        display: inline-block;
+                        cursor: pointer;
+                        color: #ffffff;
+                        font-family: Arial;
+                        font-size: 15px;
+                        font-weight: bold;
+                        /* padding: 9px 23px; */
+                        text-decoration: none;
+                        text-shadow: 0px -1px 0px #4800cf;
+                      ">
+                           <div class="row">
+                                <div class="col-md-12">
+                                    <div class="menu-area">
+                                        <div class="limit-box">
+                                            <nav class="main-menu" style="width: 100%;">
+                                                <ul class="menu-area-main">
+                                                    <li class="active"> <a href="index-2.html">Home</a> </li>
+                                                    <li> <a href="#about" style=" line-height: 20px;
+                                                        font-size: 16px;
+                                                        display: block;
+                                                        font-weight: 500;
+                                                        color: #fff;
+                                                        padding: 19px 17px;
+                                                        width: 160px;
+                                                        white-space: nowrap;
+                                                        border-right: solid #119711 1px;">About</a> </li>
+                                                    <li><a href="#DSS" style=" line-height: 20px;
+                                                        font-size: 16px;
+                                                        display: block;
+                                                        font-weight: 500;
+                                                        color: #fff;
+                                                        padding: 19px 17px;
+                                                        width: 160px;
+                                                        white-space: nowrap;
+                                                        border-right: solid #119711 1px;">DSS</a></li>
+                                                    <li><a href="gallery.html" style=" line-height: 20px;
+                                                        font-size: 16px;
+                                                        display: block;
+                                                        font-weight: 500;
+                                                        color: #fff;
+                                                        padding: 19px 17px;
+                                                        width: 160px;
+                                                        white-space: nowrap;
+                                                        border-right: solid #119711 1px;">Gallery</a></li>
+                                                    <li><a href="team.html" style=" line-height: 20px;
+                                                        font-size: 16px;
+                                                        display: block;
+                                                        font-weight: 500;
+                                                        color: #fff;
+                                                        padding: 19px 17px;
+                                                        width: 160px;
+                                                        white-space: nowrap;
+                                                        border-right: solid #119711 1px;">Team</a></li>
+                                                    <li><a href="publication.html" style=" line-height: 20px;
+                                                        font-size: 16px;
+                                                        display: block;
+                                                        font-weight: 500;
+                                                        color: #fff;
+                                                        padding: 19px 17px;
+                                                        width: 160px;
+                                                        white-space: nowrap;
+                                                        border-right: solid #119711 1px;">Publication</a></li>
+                                                    <li><a href="#contact" style=" line-height: 20px;
+                                                        font-size: 16px;
+                                                        display: block;
+                                                        font-weight: 500;
+                                                        color: #fff;
+                                                        padding: 19px 17px;
+                                                        width: 160px;
+                                                        white-space: nowrap;
+                                                        border-right: solid #119711 1px;">Contact Us</a></li>
+                                                    <li><a href="faq.html" style=" line-height: 20px;
+                                                        font-size: 16px;
+                                                        display: block;
+                                                        font-weight: 500;
+                                                        color: #fff;
+                                                        padding: 19px 17px;
+                                                        width: 160px;
+                                                        white-space: nowrap;
+                                                        border-right: solid #119711 1px;">FAQ's</a></li>
+                                                </ul>
+                                            </nav>
+                                        </div>
+                                    </div>
+    
+                                </div>
+                               
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end header inner -->
+        </header>
+        <!-- end header -->
+
+<div id="about" class="about">
+ 
+    <div class="containerz1" >
+    <form method="POST" action="/fieldbund" onsubmit="return validateForm();">
+        <h1>Enter Parameters for Field Bunding </h1>
+
+        <div class="input-container">
+             <input type="number" class="length" step="0.01" name="hob" placeholder="Enter height of bund_h(m) Range from 0.3-0.6:" autocomplete="on" >
+            <span class="error-message" id="error-hob"></span>
+        </div>
+
+        <div class="input-container">
+            
+            <input type="number"  class="length1" step="0.01" name="tw" placeholder="Enter top width_T(m):" autocomplete="on" >
+            <span class="error-message" id="error-tw"></span>
+        </div>
+
+        <div class="input-container">
+           
+            <select class="x" name="op_set_hi" id="op_set_hi">
+                <option class='short' data-limit='60'  value=""  disabled selected>optional_settlement height of bund:</option>
+                <option class='short' data-limit='30' value="15">15%</option>
+                <option class='short' data-limit='30' value="16">16%</option>
+                <option class='short' data-limit='30' value="17">17%</option>
+                <option class='short' data-limit='30' value="18">18%</option>
+                <option class='short' data-limit='30' value="19">19%</option>
+                <option class='short' data-limit='30' value="20">20%</option>
+            </select>
+            <span class="error-message" id="error-op_set_hi"></span>
+        </div>
+
+        <div class="input-container">
+            <select id="select-option" class="x" name="select-option">
+            <option class='short'  data-limit='37' value="" disabled selected>Soil Type:</option>
+            <option class='short' data-limit='37' value="CLAY">{{ my_dict['selected_option'] }}</option>
+            <option class='short' data-limit='37' value="LOAMY">{{ my_dict['selected_option2'] }}</option>
+            <option class='short' data-limit='37' value="SANDY">{{ my_dict['selected_option3'] }}</option>
+        </select>
+        <span class="error-message" id="error-select-option"></span>
+    </div>
+        <div id="input-field" style="display:none;">
+            <label for="value-input"><h4>Enter side slope Value:</h4></label>
+            <input class="input2" type="number" id="value-input" name="entered_value" value="{{ entered_value }}">
+        </div>
+        
+
+        <div id="input-field1" style="display:none;">
+            <label for="value-input1"><h4>Enter side slope Value:</h4></label>
+            <input class="input2" type="text" id="value-input1" name="entered_value2" value="{{ entered_value2 }}">
+        </div>
+
+        <div id="input-field2" style="display:none;">
+            <label for="value-input2"><h4>Enter side slope Value:</h4></label>
+            <input class="input2" type="number" id="value-input2" name="entered_value3" value="{{ entered_value3 }}">
+        </div>
+    <div class="input-container">
+        
+        <select id="select-option1" class="x" name="select-option1">
+            <option class='short' data-limit='60'  value="" disabled selected>Volume of earthwork(m3):</option>
+            <option class='short' data-limit='60' value="{{ thisdict2['selected1'] }}">{{ thisdict2['selected1'] }}</option>
+            <option class='short' data-limit='60' value="{{ thisdict2['selected2'] }}">{{ thisdict2['selected2'] }}</option>
+        </select>
+        <span class="error-message" id="error-select-option1"></span>
+    </div>
+
+        <div id="input-field3" style="display:none;">
+            
+            <input class="input2" type="number" id="value-input3" placeholder="length of plot(m):" name="entered_value4">
+            
+            <input class="input2" type="number" id="value-input3" placeholder="Width of plot(m):" name="entered_value5">
+        </div>
+
+        <div id="input-field4" style="display:none;">
+           
+            <input class="input2" type="number" id="value-input4"  placeholder="length of bund(m):" name="entered_value6">
+        </div>
+        <div class="button-container">
+        <button id="close-button">Close</button>
+        <button type="submit" class="calculator-button">Calculate</button>
+    </form>
+
+    </div>
+    </div>
+
+    <script>// script.js
+        // script.js
+              // document.getElementById('closeButton').addEventListener('click', function() {
+              //     // Instead of closing the window, you could redirect to another page
+              //     window.location.href = 'http://127.0.0.1:5000/';
+      
+              // });
+      
+              document.addEventListener('DOMContentLoaded', function () {
+          // Get the close button element
+          var closeButton = document.getElementById('close-button');
+      
+          // Add a click event listener to the close button
+          closeButton.addEventListener('click', function () {
+              // Add the closing class to initiate the animation
+              var buttonContainer = document.querySelector('.button-container');
+              buttonContainer.classList.add('closing');
+      
+              // Set a timeout to perform the closing action after the animation is complete
+              setTimeout(function () {
+                  // Perform your closing action here (e.g., window.close())
+                  // For demonstration purposes, let's just redirect to a new page
+                  window.location.href = 'http://127.0.0.1:5000/index';
+              }, 500); // Adjust the timeout duration to match the animation duration
+          });
+      });
+      
+      
+      
+              </script>
+    
+              <!-- Add this script at the end of your HTML body or in the head section -->
+    <script>
+        function printReport() {
+            //Get the print button and put it into a variable
+            var printButton = document.getElementById('printButton');
+            //Set the print button visibility to 'hidden' 
+            printButton.style.visibility = 'hidden';
+    
+            var printContent = document.querySelector('.report1').innerHTML;
+            var originalContent = document.body.innerHTML;
+    
+            // Create a new window and set its content to the report section
+            var printWindow = window.open('', '_blank');
+            printWindow.document.write('<html><head><title>Print Report</title>');
+    
+            // Copy the styles from your existing stylesheets or style tags
+            var styles = document.querySelectorAll('style, link[rel="stylesheet"]');
+            styles.forEach(function(style) {
+                printWindow.document.head.appendChild(style.cloneNode(true));
+            });
+    
+            printWindow.document.write('</head><body>');
+            printWindow.document.write(printContent);
+            printWindow.document.write('</body></html>');
+    
+            // Print and close the new window
+            printWindow.document.close();
+            printWindow.print();
+            printWindow.close();
+    
+            printButton.style.visibility = 'visible';
+    
+        }
+    </script>
+
+
+
+
+
+    {% if selected_option in ["CLAY", "LOAMY", "SANDY"] %}
+    <div class="report1">
+    <div class="containerz1">
+        <div class="report">
+    <div class="section">
+        <h2>height of bund_h(m) Range from 0.3-0.6</h2>
+    <p class="c">Entered Value <span id="hob" class="spnx">{{ hob }}</span>
+    </div>
+    <div class="section">
+        <h2>Slope of top width_T(m):</h2>
+    <p class="c">Entered Value <span id="tw" class="spnx">{{ tw }}</span></p>
+    </div>
+    <div class="section">
+        <h2>optional_settlement height(15%-20%) of bund height:</h2>
+    <p class="c">Entered Value <span id="op_set_hi" class="spnx">{{ op_set_hi1 }}</span></p>
+    </div>
+    <div class="section">
+    {% if selected_option == "CLAY" %}
+    <h2>side slope(m):</h2>
+    <p class="c">Entered Value <span id="value-input" class="spnx">{{ entered_value }}</span></p>
+    {% endif %}
+    
+    {% if selected_option == "LOAMY" %}
+    <h2>side slope(m):</h2>
+    <p class="c">Entered side slope(m): <span id="value-input1"  class="spnx">{{ entered_value2 }}</span></p>
+    {% endif %}
+    
+    {% if selected_option == "SANDY" %}
+    <h2>side slope(m):</h2>
+    <p class="c">Entered side slope(m): <span id="value-input2"  class="spnx">{{ entered_value3 }}</span></p>
+    {% endif %}
+    </div>
+    
+    <div class="section">
+        <h2>Bund height(m):</h2>
+    <p class="c1">Evaluated Value<span id="bh" class="spnx">{{ bh }}</span></p>
+    </div>
+    <div class="section">
+        <h2>Base width_B(m):</h2>
+    <p class="c1">Evaluated Value<span id="bw" class="spnx">{{ bw }}</span></p>
+    </div>
+    <div class="section">
+        <h2>Cross-Sectional area (m2):</h2>
+    <p class="c1">Evaluated Value<span id="cross_area" class="spnx">{{ cross_area }}</span></p>
+    </div>
+    
+    {% if selected == "By Field Dimension" %}
+    <div class="section">
+        <h2>field dimension length of plot(m):</h2>
+    <p class="c">Entered Value: <span id="fild_dmnsn_lop" class="spnx">{{ entered_value4 }}</span></p>
+    </div>
+    <div class="section">
+        <h2>field dimension width of plot(m)</h2>
+    <p class="c">Entered Value : <span id="fild_dmnsn_wop" class="spnx">{{ entered_value5 }}</span></p>
+    </div>
+    <div class="section">
+        <h2>Volume of earthwork(m3) By field dimension:</h2>
+    <p class="c1">Evaluated Value <span id="fb_voew"  class="spnx">{{ x }}</span></p>
+    </div>
+    {% endif %}
+
+    
+    {% if selected == "User Defined Length" %}
+    <div class="section">
+        <h2>User defined length of bund(m):</h2>
+        <p class="c">Entered Value  <span id="value-input4" class="spnx">{{ entered_value6 }}</span></p>
+        </div>
+        <div class="section">
+            <h2>Volume of earthwork(m3) By User defined length:</h2>
+        <p class="c1">Evaluated Value<span id="ud_voew" class="spnx">{{ x }}</span></p>
+    </div>
+
+
+    {% endif %}
+    </div>
+    <div class="button-container">
+        <button id="printButton" onclick="printReport()">Print Report</button>
+        </div>
+    </div>
+
+
+    </div>
+    </div>
+
+    {% endif %}
+
+</div>
+
+    <script>
+        function validateForm() {
+            var hob = document.getElementsByName("hob")[0].value;
+            var tw = document.getElementsByName("tw")[0].value;
+            var op_set_hi = document.getElementsByName("op_set_hi")[0].value;
+            var selectOption = document.getElementById("select-option").value;
+            var selectOption1 = document.getElementById("select-option1").value;
+
+            // Clear previous error messages
+            document.getElementById("error-hob").innerHTML = "";
+            document.getElementById("error-tw").innerHTML = "";
+            document.getElementById("error-op_set_hi").innerHTML = "";
+            document.getElementById("error-select-option").innerHTML = "";
+            document.getElementById("error-select-option1").innerHTML = "";
+            
+            if (hob === "") {
+                document.getElementById("error-hob").innerHTML = "Please enter the height of bund_h.";
+                return false;
+            }
+
+            if (isNaN(hob) || hob < 0.3 || hob > 0.6) {
+            document.getElementById("error-hob").innerHTML = "Please enter a value between 0.3 and 0.6 for the height of bund_h.";
+            return false;
+        }
+
+            if (tw === "") {
+                document.getElementById("error-tw").innerHTML = "Please enter the top width_T.";
+                return false;
+            }
+
+            if (op_set_hi === "") {
+                document.getElementById("error-op_set_hi").innerHTML = "Please select the optional settlement height.";
+                return false;
+            }
+
+            if (selectOption === "") {
+            document.getElementById("error-select-option").innerHTML = "Please select the soil type";
+            return false;
+            }
+
+            if (selectOption1 === "") {
+            document.getElementById("error-select-option1").innerHTML = "Please select Volume of earth work(m3)";
+            return false;
+            }
+
+            
+            return true;
+        }
+
+        
+        document.getElementById('select-option').addEventListener('change', function() {
+            var inputField = document.getElementById('input-field');
+            inputField.style.display = this.value === 'CLAY' ? 'block' : 'none';
+    
+            var inputField1 = document.getElementById('input-field1');
+            inputField1.style.display = this.value === 'LOAMY' ? 'block' : 'none';
+    
+            var inputField2 = document.getElementById('input-field2');
+            inputField2.style.display = this.value === 'SANDY' ? 'block' : 'none';
+        });
+        
+        document.getElementById('select-option1').addEventListener('change', function() {
+            var inputField3 = document.getElementById('input-field3');
+            inputField3.style.display = this.value === 'By Field Dimension' ? 'block' : 'none';
+    
+            var inputField4 = document.getElementById('input-field4');
+            inputField4.style.display = this.value === 'User Defined Length' ? 'block' : 'none';
+        });
+
+ 
+    </script>
+<script>
+
+function shortString(selector) {
+        const elements = document.querySelectorAll(selector);
+        const tail = '...';
+        if (elements && elements.length) {
+            for (const element of elements) {
+            let text = element.innerText;
+            if (element.hasAttribute('data-limit')) {
+                if (text.length > element.dataset.limit) {
+                element.innerText = `${text.substring(0, element.dataset.limit - tail.length).trim()}${tail}`;
+                }
+            } else {
+                throw Error('Cannot find attribute \'data-limit\'');
+            }
+        }
+    }
+    }
+
+    window.onload = function() {
+    shortString('.short');
+    };
+    </script>
+
+<footr style="position: fixed;
+width: 100%;
+bottom: 0px;"> 
+    <div class="copyright">
+        <div class="container">
+            <p>© 2023 All Rights Reserved. Developed & Maintained by<a href="#"> Odisha University of Agriculture and Technology</a></p>
+       
+    </div>
+    </div>
+</footr>
+
+
+    <!-- end footer -->
+    <!-- Javascript files-->
+    <script data-cfasync="false" src="{{ url_for('static', filename='../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js') }}"></script><script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery-3.0.0.min.js') }}"></script>
+    <!-- sidebar -->
+    <script src="{{ url_for('static', filename='js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+    <!-- javascript -->
+    <script src="{{ url_for('static', filename='js/owl.carousel.html') }}"></script>
+    
+    
+</body>
+</html>

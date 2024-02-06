@@ -50,8 +50,7 @@ h1 {
 
 .input-container {
     display: inline-block;
-    margin: 30px;
-    padding: 17px;
+    margin: 10px;
     position: relative;
     transition: border-color 0.3s, box-shadow 0.3s; /* Add transitions for border color and box shadow */
     transform: scale(1); /* Initial scale, 1 means no scaling */
@@ -61,103 +60,35 @@ h1 {
     transform: scale(1.05); /* Zoom in by 5% on hover */
 }
 
-.input1 {
-    position: static;
+input {
+    width: 100%;
     padding: 10px;
-    margin: -43px;
+    margin: 20px;
     border:solid 2px rgb(230, 230, 230);
     border-radius: 5px;
-    font-size: 18px;
+    /* font-size: 16px; */
     transition: border-color 0.3s, box-shadow 0.3s, border-bottom-width 0.3s; /* Add transition for border bottom width */
-    line-height: 2;
+    line-height: 3;
 }
 
-.input1:focus {
+input:focus {
 
     border-color: #3498db;
     box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
     border-bottom: 2px solid #3498db; /* Increase border-bottom width on focus */
 }
-
-.input2 {
-    padding: 0px;
-    margin: 0px;
-    border:solid 2px rgb(230, 230, 230);
-    border-radius: 5px;
-    font-size: 18px;
-    transition: border-color 0.3s, box-shadow 0.3s, border-bottom-width 0.3s; /* Add transition for border bottom width */
-    line-height: 2;
-
-}
-
-.input3 {
-    padding: 10px;
-    margin: -43px;
-    border:solid 2px rgb(230, 230, 230);
-    border-radius: 5px;
-    font-size: 18px;
-    transition: border-color 0.3s, box-shadow 0.3s, border-bottom-width 0.3s; /* Add transition for border bottom width */
-    line-height: 2;
-}
-
-.input3:focus {
-
-border-color: #3498db;
-box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
-border-bottom: 2px solid #3498db; /* Increase border-bottom width on focus */
-}
-
-.input2:focus {
-
-    border-color: #3498db;
-    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
-    border-bottom: 2px solid #3498db; /* Increase border-bottom width on focus */
-}
-
-select {
-    position: static;
-    width: 250px;
-    padding: 17px;
-    margin: -43px;
-    border:solid 2px rgb(230, 230, 230);
-    border-radius: 5px;
-    font-size: 16px;
-    transition: border-color 0.3s, box-shadow 0.3s, border-bottom-width 0.3s; /* Add transition for border bottom width */
-  
-}
-
-select:focus {
-
-    border-color: #3498db;
-    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
-    border-bottom: 2px solid #3498db; /* Increase border-bottom width on focus */
-}
-
-.short {
-    position: absolute;
-    white-space: pre-line;
-    
-
-
-}
-
-option:focus {
-
-    border-color: #3498db;
-    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
-    border-bottom: 2px solid #3498db; /* Increase border-bottom width on focus */
-}
-
 
 .error-message {
     color: #e74c3c;
+    display: none;
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
 }
 
-.header {
+
+         .header {
             font-family: poppins;
             padding: 10px 0px;
             background: #f6fbf1;
@@ -274,12 +205,15 @@ nav.main-menu {
     padding: 10px 20px;
     font-size: 16px;
     margin: 0 10px; /* Add margin between buttons */
-    font-weight: bold;
-    font-size: 18px;
-    cursor: pointer;
-    width: 150px; /* Adjust the width to match the input width */
+	font-weight: bold;
+	font-size: 18px;
+	cursor: pointer;
+	width: 150px; /* Adjust the width to match the input width */
+    line-height: 1.6;
 
 }
+
+
 
 .calculator-button:hover {
     background-color: #2980b9;
@@ -372,48 +306,12 @@ p {
     100% { opacity: 1; }
 }
 
-.p {
-    font-size: 18px;
-    line-height: 1.5;
-    color: #555;
-    font-weight:600;
-}
 input::placeholder {
-white-space: pre-line;
-font-size: 0.85em;
-position: absolute;
+    white-space: pre-line;
+    font-size: 1.1em;
+    text-align: center;
 
 
-}
-.x{
-
-font-size: 1.1em;
-color: #5e5c5c;
-}
-.x option{
-white-space: pre-line;
-}
-.length{
-position: static;
-    padding: 10px;
-    margin: 20px;
-    border:solid 2px rgb(230, 230, 230);
-    border-radius: 5px;
-    font-size: 18px;
-    transition: border-color 0.3s, box-shadow 0.3s, border-bottom-width 0.3s; /* Add transition for border bottom width */
-    line-height: 2;
-    width: 120%;
-}
-.length1{
-position: static;
-    padding: 10px;
-    margin: 20px;
-    border:solid 2px rgb(230, 230, 230);
-    border-radius: 5px;
-    font-size: 18px;
-    transition: border-color 0.3s, box-shadow 0.3s, border-bottom-width 0.3s; /* Add transition for border bottom width */
-    line-height: 2;
-    width: 120%;
 }
 
 #printButton {
@@ -427,9 +325,6 @@ position: static;
     margin: 0 10px; /* Add margin between buttons */
     margin-left: 50%;
 }
-
-
-
 
 
 
@@ -609,68 +504,28 @@ position: static;
     <div id="about" class="about">
         
         <div class="containerz1" >
-            <form method="post" id="contourForm">
-            <h1>Enter Parameters for Contour Bunding</h1>
-                <div class="input-container">
-                <input class="input1" type="number" name="s" placeholder="Land Slope (%)" step="0.001" required>
-
-            </div>
-            <div class="input-container">
-                <input class="input1" type="number" name="r" placeholder="Rainfall (mm)" step="0.001" required>
-
-            </div>
-            <div class="input-container">
-                <select id="selected_soil" class="x" name="selected_soil" onchange="updateSoilValues()" required>
-                    <option class='short' data-limit='25' value="" disabled selected>Soil Type:</option>
-                    <option class='short' data-limit='25' value="CLAY">{{ soil_dict2['selected_option1'] }}</option>
-                    <option class='short' data-limit='25' value="LOAMY">{{ soil_dict2['selected_option2'] }}</option>
-                    <option class='short' data-limit='25' value="SANDY">{{ soil_dict2['selected_option3'] }}</option>
-                </select>
-            </div>
-
-            <div id="input-field" style="display:none;">
-                <label for="value-input" class="lengt"><h4>Enter side slope Value:</h4></label>
-                <input class="input2" type="number" id="value-input" name="selected_soil_slope1" value="{{ soil_dict1['selected_option1'] }}">
-                <label for="value-input"><h4>Seepage line Slope (Zs):</h4></label>
-                <input class="input2" type="text" id="value-input" name="selected_soil_slope4" value="{{ soil_dict1['selected_option4'] }}">
-            </div>
-            
-            <div id="input-field1" style="display:none;">
-                <label for="value-input1"><h4>Enter side slope Value:</h4></label>
-                <input class="input2" type="text" id="value-input1" name="selected_soil_slope2" value="{{ soil_dict1['selected_option2'] }}">
-                <label for="value-input1"><h4>Seepage line Slope (Zs):</h4></label>
-                <input class="input2" type="number" id="value-input1" name="selected_soil_slope5" value="{{ soil_dict1['selected_option5'] }}">
-            </div>
-            
-            <div id="input-field2" style="display:none;">
-                <label for="value-input2"><h4>Enter side slope Value:</h4></label>
-                <input class="input2" type="number" id="value-input2" name="selected_soil_slope3" value="{{ soil_dict1['selected_option3'] }}">
-                <label for="value-input2"><h4>Seepage line Slope (Zs):</h4></label>
-                <input class="input2" type="number" id="value-input2" name="selected_soil_slope6" value="{{ soil_dict1['selected_option6'] }}">
-            </div>  
-
-
-            <div class="input-container">
-                <input class="input3" type="number" name="fb" placeholder="Free Board (%):" step="0.001"  required>
-            </div>
-            
-           
+            <form method="post" action="/benchterrace" id="contourForm">
+            <h1>Enter Parameters for Bench Terraceing</h1>
 			<div class="input-container">
-                <input class="input3" type="number" name="cost" placeholder="Cost of earth work per cumec:" step="0.001"  required>
-
+                <input type="number" name="rainfall" placeholder="Rainfall (mm):" step="0.001" required>
+                <div class="error-message" id="land-slope-error">Please enter a valid slope percentage.</div>
             </div>
-			
-        
-            <div class="button-container">
+            <div class="input-container">
+                <input type="number" name="Slope" placeholder="Slope of bench terrace(%):" step="0.001" required>
+                <div class="error-message" id="rainfall-error">Please enter a valid rainfall amount.</div>
+            </div>
+			<div class="input-container">
+                <input type="number" name="Sr" placeholder="Riser slope(Sr):" step="0.001" required>
+                <div class="error-message" id="rainfall-error">Please enter a valid rainfall amount.</div>
+            </div>
+             <div class="button-container">
                <!-- <button id="calculate-button" type="button">Calculate</button> -->
-                <!-- <button id="refresh-button" type="button" onclick="resetForm()">Refresh</button> -->
                 <button id="close-button">Close</button>
                 <input type="submit" value="Calculate" class="calculator-button">
                 
             </div>
            </form>
           
-        </div>
         </div>
 
 		<script>// script.js
@@ -704,319 +559,116 @@ position: static;
           
                   </script>
         
-
-
-<script>
-    function printReport() {
-        // Get the print button and put it into a variable
-        var printButton = document.getElementById('printButton');
-        // Set the print button visibility to 'hidden'
-        printButton.style.visibility = 'hidden';
-
-        // Create a new window and set its content to the report section
-        var printWindow = window.open('', '_blank');
-        printWindow.document.write('<html><head><title>Print Report</title>');
-
-        // Copy the styles from your existing stylesheets or style tags
-        var styles = document.querySelectorAll('style, link[rel="stylesheet"]');
-        styles.forEach(function (style) {
-            printWindow.document.head.appendChild(style.cloneNode(true));
-        });
-
-        printWindow.document.write('</head><body>');
-
-        // Include the image directly in the print window
-        var imageSrc = document.querySelector('.report1 img').src;
-        printWindow.document.write('<img src="' + imageSrc + '">');
-
-        // Copy the content of the report section
-        var printContent = document.querySelector('.containerz1').innerHTML;
-        printWindow.document.write(printContent);
-
-        printWindow.document.write('</body></html>');
-
-        // Print and close the new window
-        printWindow.document.close();
-        printWindow.print();
-        printWindow.close();
-
-        printButton.style.visibility = 'visible';
-    }
-</script>
-
-<script>
-
-    
-    document.getElementById('selected_soil').addEventListener('change', function() {
-        var inputField = document.getElementById('input-field');
-        inputField.style.display = this.value === 'CLAY' ? 'block' : 'none';
-
-        var inputField1 = document.getElementById('input-field1');
-        inputField1.style.display = this.value === 'LOAMY' ? 'block' : 'none';
-
-        var inputField2 = document.getElementById('input-field2');
-        inputField2.style.display = this.value === 'SANDY' ? 'block' : 'none';
-    });
-
-
-
-</script>
-
-<script>
-
-    function shortString(selector) {
-            const elements = document.querySelectorAll(selector);
-            const tail = '...';
-            if (elements && elements.length) {
-                for (const element of elements) {
-                let text = element.innerText;
-                if (element.hasAttribute('data-limit')) {
-                    if (text.length > element.dataset.limit) {
-                    element.innerText = `${text.substring(0, element.dataset.limit - tail.length).trim()}${tail}`;
-                    }
-                } else {
-                    throw Error('Cannot find attribute \'data-limit\'');
-                }
+                  <!-- Add this script at the end of your HTML body or in the head section -->
+        <script>
+            function printReport() {
+                //Get the print button and put it into a variable
+                var printButton = document.getElementById('printButton');
+                //Set the print button visibility to 'hidden' 
+                printButton.style.visibility = 'hidden';
+        
+                var printContent = document.querySelector('.report1').innerHTML;
+                var originalContent = document.body.innerHTML;
+        
+                // Create a new window and set its content to the report section
+                var printWindow = window.open('', '_blank');
+                printWindow.document.write('<html><head><title>Print Report</title>');
+        
+                // Copy the styles from your existing stylesheets or style tags
+                var styles = document.querySelectorAll('style, link[rel="stylesheet"]');
+                styles.forEach(function(style) {
+                    printWindow.document.head.appendChild(style.cloneNode(true));
+                });
+        
+                printWindow.document.write('</head><body>');
+                printWindow.document.write(printContent);
+                printWindow.document.write('</body></html>');
+        
+                // Print and close the new window
+                printWindow.document.close();
+                printWindow.print();
+                printWindow.close();
+        
+                printButton.style.visibility = 'visible';
+        
             }
-        }
-        }
-    
-        window.onload = function() {
-        shortString('.short');
-        };
         </script>
 
-{% if s %}
+{% if rainfall %}
 <div class="report1">
 <div class="containerz1">
 	<!-- Your result sections here -->
 	<div class="report">
-		<h1>Design and Estimate on Contour Bunding</h1>
+		<h1>Design and Estimate on Contour Stone Bunding</h1>
 		<div class="section">
-			<h2>Land Slope (%)</h2>
-			<p>Entered value: <span  class="spnx" id="s" > {{ s }} </span></p>
+			<h2>rainfall (mm):</h2>
+			<p>Entered value: <span  class="spnx" id="rainfall" > {{ rainfall }} </span></p>
 		</div>
 		<div class="section">
-			<h2>Vertical Interval (m)</h2>
+			<h2>Slope of bench terrace (%):</h2>
+			<p>Entered value: <span class="spnx" id="Slope">{{ Slope }}</span></p>
+		</div>
+		<div class="section">
+			<h2>Riser slope (Sr):</h2>
+			<p>Entered value: <span class="spnx" id="Sr">{{ Sr }}</span></p>
+		</div>
+		<div class="section">
+			<h2>Vertical Interval (VI) (m):</h2>
 			<p>Evaluated value: <span class="spnx" id="vi">{{ vi }}</span></p>
 		</div>
+
 		<div class="section">
-			<h2>Horizontal Interval (m)</h2>
+			<h2>Width of bench terrace (m):</h2>
+			<p>Entered value: <span class="spnx" id="terrace">{{ terrace }}</span></p>
+		</div>
+		<div class="section">
+			<h2>Horizontal Interval (HI):</h2>
 			<p>Evaluated value: <span class="spnx" id="hi">{{ hi }}</span></p>
 		</div>
 		<div class="section">
-			<h2>Enter rainfall (mm)</h2>
-			<p>Entered Value: <span class="spnx" id="r">{{ r }}</span></p>
-		</div>
-
-		<div class="section">
-            {% if selected_soil == "CLAY" %}
-			<h2>Side slope of bund (Z) as per soil texture:</h2>
-			<p class="c">Entered Value <span id="value-input" class="spnx">{{ soil_dict1['selected_option1'] }}</span></p>
-            {% endif %}
-
-            {% if selected_soil == "LOAMY" %}
-            <h2>Side slope of bund (Z) as per soil texture:</h2>
-			<p class="c">Entered Value <span id="value-input1" class="spnx">{{ soil_dict1['selected_option2'] }}</span></p>
-            {% endif %}
-
-            {% if selected_soil == "SANDY" %}
-            <h2>Side slope of bund (Z) as per soil texture:</h2>
-			<p class="c">Entered Value <span id="value-input2" class="spnx">{{ soil_dict1['selected_option3'] }}</span></p>
-            {% endif %}
-		</div>
-
-		<div class="section">
-			<h2>Depth of water behind Bund (m):</h2>
-			<p>Evaluated value: <span class="spnx" id="d">{{ d }}</span></p>
+			<h2>length of the bench (m)\ha:</h2>
+			<p>Evaluated value: <span class="spnx" id="bench">{{bench }}</span></p>
 		</div>
 		<div class="section">
-			<h2>width between two bunds (m)</h2>
-			<p>Evaluated value: <span class="spnx" id="w">{{ w }}</span></p>
+			<h2>Earthwork per Hectare (m3):</h2>
+			<p>Evaluated value: <span class="spnx" id="Hectare">{{ Hectare }}</span></p>
 		</div>
 		<div class="section">
-			<h2>Free Board (%):</h2>
-			<p>Entered value: <span class="spnx" id="fb">{{ fb }}</span></p>
-		</div>
-        <div class="section">
-			<h2>Height of Bund (H)</h2>
-			<p>Entered value: <span class="spnx" id="h">{{ h }}</span></p>
-		</div>
-		
-        <div class="section">
-
-            {% if selected_soil == "CLAY" %}
-			<h2>Entered Seepage line slope [Zs]:</h2>
-			<p class="c">Entered Value <span id="value-input" class="spnx">{{ soil_dict1['selected_option4'] }}</span></p>
-            {% endif %}
-
-            {% if selected_soil == "LOAMY" %}
-            <h2>Entered Seepage line slope [Zs]:</h2>
-			<p class="c">Entered Value <span id="value-input1" class="spnx">{{ soil_dict1['selected_option5'] }}</span></p>
-            {% endif %}
-
-            {% if selected_soil == "SANDY" %}
-            <h2>Entered Seepage line slope [Zs]:</h2>
-			<p class="c">Entered Value <span id="value-input2" class="spnx">{{ soil_dict1['selected_option6'] }}</span></p>
-            {% endif %}
-		</div>
-
-        <div class="section">
-			<h2>Base Width of Bund(B):</h2>
-			<p>Entered value: <span class="spnx" id="B">{{ B }}</span></p>
-		</div>
-        <div class="section">
-			<h2>Top Width of Bund(B):</h2>
-			<p>Entered value: <span class="spnx" id="T">{{ T }}</span></p>
-		</div>
-		
-		<div class="section">
-			<h2>Cross-sectional area</h2>
-			<p>Evaluated value: <span class="spnx" id="a">{{ a }}</span></p>
-		</div>
-		<div class="section">
-			<h2>Length of the bond per ha (m)</h2>
-			<p>Evaluated value: <span class="spnx" id="lbh">{{ lbh }}</span></p>
-		</div>
-		<div class="section">
-			<h2>Volume of earthwork(cumec):</h2>
-			<p>Evaluated value: <span class="spnx" id="vew">{{ vew }}</span></p>
-		</div>
-
-		<div class="section">
-			<h2>Add 20 % extra for depresions(cumec):</h2>
-			<p>Evaluated value: <span class="spnx" id="add20">{{ add20 }}</span></p>
-		</div>
-		<div class="section">
-			<h2>Entered Cost of earth per cumec:</h2>
-			<p>Evaluated value: <span class="spnx" id="cost">{{cost}}</span></p>
-		</div>
-		<div class="section">
-			<h2>Cost of bund per ha(Rs):</h2>
-			<p>Evaluated value: <span class="spnx" id="cbph">{{ cbph }}</span></p>
-		</div>
-
+			<h2>Cost\ha:</h2>
+			<p>Evaluated value: <span class="spnx" id="Cost">{{ Cost }}</span></p>
+		</div>	 
     </div>
-</div>       
-
-
-</div>
-</div>
-
-
-<div class="containerz1" style="text-align: left;">
-<span style="
-   position: relative;
-display: inline;
-top: 100px;
-width: 100%;
-left: 680px;
-border-radius: 3px;
-color: #ffc927;
-padding: 4px;
-font-weight: bold;
-font-size: 14px;
-background-color: #097070;
-">VI : {{vi}}(m)</span>
-<span id="shi" 
-style="position: relative;
-display: inline;
-top: 240px;
-left: 820px;
-border-radius: 3px;
-color: #ffc927;
-padding: 4px;
-font-weight: bold;
-font-size: 14px;
-background-color: #097070;
-">HI : {{hi}}(m)</span>
-<span id="shi" 
-style="position: relative;
-display: inline;
-top: 315px;
-left: 625px;
-border-radius: 3px;
-color: #ffc927;
-padding: 4px;
-font-weight: bold;
-font-size: 14px;
-background-color: #097070;
-">T : {{T}}(m)</span>
-<span id="shi" 
-style="position: relative;
-display: inline;
-top: 400px;
-left: 400px;
-border-radius: 3px;
-color: #ffc927;
-padding: 4px;
-font-weight: bold;
-font-size: 14px;
-background-color: #097070;
-">S : {{s}}(m)</span>
-<span id="shi" 
-style="position: relative;
-display: inline;
-top: 380px;
-left: 650px;
-border-radius: 3px;
-color: #ffc927;
-padding: 4px;
-font-weight: bold;
-font-size: 14px;
-background-color: #097070;
-">H : {{h}}(m)</span>
-<span id="shi" 
-style="position: relative;
-display: inline;
-top: 455px;
-left: 367px;
-border-radius: 3px;
-color: #ffc927;
-padding: 4px;
-font-weight: bold;
-font-size: 14px;
-background-color: #097070;
-">B : {{B}}(m)</span>
-<div style="
-text-align: center;
-width: 1800px;
-height: 750px;
-background-size: contain;
-background-repeat: no-repeat;" ><img src="{{ url_for('static', filename='svg1.jpg') }}"></div>
-<div class="button-container">
-        <button id="printButton" onclick="printReport()">Print Report</button>
-        </div>
-    </div>     
-    
-    </div>
-    {% endif %}
-    </div>
-</div>     
-
+    <div class="button-container">
+       <button id="printButton" onclick="printReport()">Print Report</button>
+       </div>
+   </div> 
+   {% endif %} 
+   </div> 
+   
 <footr style="position: fixed;
 width: 100%;
 bottom: 0px;"> 
 <div class="copyright">
-    <div class="container">
-        <p>© 2023 All Rights Reserved. Developed & Maintained by<a href="#"> Odisha University of Agriculture and Technology</a></p>
+	<div class="container">
+		<p>© 2023 All Rights Reserved. Developed & Maintained by<a href="#"> Odisha University of Agriculture and Technology</a></p>
    
 </div>
 </div>
 </footr>
 
 
-    <!-- end footer -->
-    <!-- Javascript files-->
-    <script data-cfasync="false" src="{{ url_for('static', filename='../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js') }}"></script><script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/jquery-3.0.0.min.js') }}"></script>
-    <!-- sidebar -->
-    <script src="{{ url_for('static', filename='js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
-    <!-- javascript -->
-    <script src="{{ url_for('static', filename='js/owl.carousel.html') }}"></script>
+<!-- end footer -->
+<!-- Javascript files-->
+<script data-cfasync="false" src="{{ url_for('static', filename='../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js') }}"></script><script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery-3.0.0.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/plugin.js') }}"></script>
+<!-- sidebar -->
+<script src="{{ url_for('static', filename='js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+<!-- javascript -->
+<script src="{{ url_for('static', filename='js/owl.carousel.html') }}"></script>
 
 
 </body>

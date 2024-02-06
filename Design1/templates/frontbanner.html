@@ -50,8 +50,7 @@ h1 {
 
 .input-container {
     display: inline-block;
-    margin: 30px;
-    padding: 17px;
+    margin: 10px;
     position: relative;
     transition: border-color 0.3s, box-shadow 0.3s; /* Add transitions for border color and box shadow */
     transform: scale(1); /* Initial scale, 1 means no scaling */
@@ -61,103 +60,35 @@ h1 {
     transform: scale(1.05); /* Zoom in by 5% on hover */
 }
 
-.input1 {
-    position: static;
+input {
+    width: 100%;
+
     padding: 10px;
-    margin: -43px;
-    border:solid 2px rgb(230, 230, 230);
-    border-radius: 5px;
-    font-size: 18px;
-    transition: border-color 0.3s, box-shadow 0.3s, border-bottom-width 0.3s; /* Add transition for border bottom width */
-    line-height: 2;
-}
-
-.input1:focus {
-
-    border-color: #3498db;
-    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
-    border-bottom: 2px solid #3498db; /* Increase border-bottom width on focus */
-}
-
-.input2 {
-    padding: 0px;
-    margin: 0px;
-    border:solid 2px rgb(230, 230, 230);
-    border-radius: 5px;
-    font-size: 18px;
-    transition: border-color 0.3s, box-shadow 0.3s, border-bottom-width 0.3s; /* Add transition for border bottom width */
-    line-height: 2;
-
-}
-
-.input3 {
-    padding: 10px;
-    margin: -43px;
-    border:solid 2px rgb(230, 230, 230);
-    border-radius: 5px;
-    font-size: 18px;
-    transition: border-color 0.3s, box-shadow 0.3s, border-bottom-width 0.3s; /* Add transition for border bottom width */
-    line-height: 2;
-}
-
-.input3:focus {
-
-border-color: #3498db;
-box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
-border-bottom: 2px solid #3498db; /* Increase border-bottom width on focus */
-}
-
-.input2:focus {
-
-    border-color: #3498db;
-    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
-    border-bottom: 2px solid #3498db; /* Increase border-bottom width on focus */
-}
-
-select {
-    position: static;
-    width: 250px;
-    padding: 17px;
-    margin: -43px;
-    border:solid 2px rgb(230, 230, 230);
+    margin: 10px;
+border:solid 2px rgb(230, 230, 230);
     border-radius: 5px;
     font-size: 16px;
     transition: border-color 0.3s, box-shadow 0.3s, border-bottom-width 0.3s; /* Add transition for border bottom width */
-  
 }
 
-select:focus {
+input:focus {
 
     border-color: #3498db;
     box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
     border-bottom: 2px solid #3498db; /* Increase border-bottom width on focus */
 }
-
-.short {
-    position: absolute;
-    white-space: pre-line;
-    
-
-
-}
-
-option:focus {
-
-    border-color: #3498db;
-    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
-    border-bottom: 2px solid #3498db; /* Increase border-bottom width on focus */
-}
-
 
 .error-message {
     color: #e74c3c;
+    display: none;
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
 }
 
-.header {
+
+         .header {
             font-family: poppins;
             padding: 10px 0px;
             background: #f6fbf1;
@@ -274,10 +205,10 @@ nav.main-menu {
     padding: 10px 20px;
     font-size: 16px;
     margin: 0 10px; /* Add margin between buttons */
-    font-weight: bold;
-    font-size: 18px;
-    cursor: pointer;
-    width: 150px; /* Adjust the width to match the input width */
+	font-weight: bold;
+	font-size: 18px;
+	cursor: pointer;
+	width: 150px; /* Adjust the width to match the input width */
 
 }
 
@@ -372,67 +303,70 @@ p {
     100% { opacity: 1; }
 }
 
-.p {
-    font-size: 18px;
-    line-height: 1.5;
-    color: #555;
-    font-weight:600;
-}
-input::placeholder {
-white-space: pre-line;
-font-size: 0.85em;
-position: absolute;
+.animated-button {
+        display: inline-block;
+        padding: 20px 40px;
+        font-size: 24px;
+        background: linear-gradient(4deg, #3498db, #2ecc71);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background 0.3s ease, transform 0.3s ease;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        background-size: 200% 100%;
+        animation: gradientAnimation 5s linear infinite;
+        width: 100%;
+        margin: 20px;
+        position: relative;
+        overflow: hidden;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
 
+    /* Add an animation to the gradient */
+    @keyframes gradientAnimation {
+        0% {
+            background-position: 200% 0;
+        }
+        100% {
+            background-position: -200% 0;
+        }
+    }
 
-}
-.x{
+    /* Apply the animation on hover */
+    .animated-button:hover {
+        box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+        transform: scale(1.05);
+    }
+    .text-animation {
+        animation: textFadeIn 3s steps(1) infinite;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 0;
+    }
 
-font-size: 1.1em;
-color: #5e5c5c;
-}
-.x option{
-white-space: pre-line;
-}
-.length{
-position: static;
-    padding: 10px;
-    margin: 20px;
-    border:solid 2px rgb(230, 230, 230);
-    border-radius: 5px;
-    font-size: 18px;
-    transition: border-color 0.3s, box-shadow 0.3s, border-bottom-width 0.3s; /* Add transition for border bottom width */
-    line-height: 2;
-    width: 120%;
-}
-.length1{
-position: static;
-    padding: 10px;
-    margin: 20px;
-    border:solid 2px rgb(230, 230, 230);
-    border-radius: 5px;
-    font-size: 18px;
-    transition: border-color 0.3s, box-shadow 0.3s, border-bottom-width 0.3s; /* Add transition for border bottom width */
-    line-height: 2;
-    width: 120%;
-}
+    @keyframes textFadeIn {
+        0% {
+            width: 0;
+        }
+        100% {
+            width: 100%;
+        }
+    }
 
-#printButton {
-    background-color: #520cd4; /* Green color for refresh button */
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    margin: 0 10px; /* Add margin between buttons */
-    margin-left: 50%;
-}
-
-
-
-
-
-
+        /* Define the pulse animation */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
 
     </style>
     <!--[if lt IE 9]>
@@ -443,9 +377,9 @@ position: static;
 
 <body class="main-layout ">
     <!-- loader  -->
-    <!-- <div class="loader_bg">
+    <div class="loader_bg">
         <div class="loader"><img src="{{ url_for('static', filename='images/loading.gif') }}" alt="#" /></div>
-    </div> -->
+    </div>
     <!-- end loader -->
     <!-- header -->
     <header>
@@ -603,423 +537,119 @@ position: static;
         <!-- end header inner -->
     </header>
     <!-- end header -->
-
     <!-- about -->
-	<!-- about -->
     <div id="about" class="about">
         
-        <div class="containerz1" >
-            <form method="post" id="contourForm">
-            <h1>Enter Parameters for Contour Bunding</h1>
-                <div class="input-container">
-                <input class="input1" type="number" name="s" placeholder="Land Slope (%)" step="0.001" required>
-
-            </div>
-            <div class="input-container">
-                <input class="input1" type="number" name="r" placeholder="Rainfall (mm)" step="0.001" required>
-
-            </div>
-            <div class="input-container">
-                <select id="selected_soil" class="x" name="selected_soil" onchange="updateSoilValues()" required>
-                    <option class='short' data-limit='25' value="" disabled selected>Soil Type:</option>
-                    <option class='short' data-limit='25' value="CLAY">{{ soil_dict2['selected_option1'] }}</option>
-                    <option class='short' data-limit='25' value="LOAMY">{{ soil_dict2['selected_option2'] }}</option>
-                    <option class='short' data-limit='25' value="SANDY">{{ soil_dict2['selected_option3'] }}</option>
-                </select>
-            </div>
-
-            <div id="input-field" style="display:none;">
-                <label for="value-input" class="lengt"><h4>Enter side slope Value:</h4></label>
-                <input class="input2" type="number" id="value-input" name="selected_soil_slope1" value="{{ soil_dict1['selected_option1'] }}">
-                <label for="value-input"><h4>Seepage line Slope (Zs):</h4></label>
-                <input class="input2" type="text" id="value-input" name="selected_soil_slope4" value="{{ soil_dict1['selected_option4'] }}">
-            </div>
-            
-            <div id="input-field1" style="display:none;">
-                <label for="value-input1"><h4>Enter side slope Value:</h4></label>
-                <input class="input2" type="text" id="value-input1" name="selected_soil_slope2" value="{{ soil_dict1['selected_option2'] }}">
-                <label for="value-input1"><h4>Seepage line Slope (Zs):</h4></label>
-                <input class="input2" type="number" id="value-input1" name="selected_soil_slope5" value="{{ soil_dict1['selected_option5'] }}">
-            </div>
-            
-            <div id="input-field2" style="display:none;">
-                <label for="value-input2"><h4>Enter side slope Value:</h4></label>
-                <input class="input2" type="number" id="value-input2" name="selected_soil_slope3" value="{{ soil_dict1['selected_option3'] }}">
-                <label for="value-input2"><h4>Seepage line Slope (Zs):</h4></label>
-                <input class="input2" type="number" id="value-input2" name="selected_soil_slope6" value="{{ soil_dict1['selected_option6'] }}">
-            </div>  
-
-
-            <div class="input-container">
-                <input class="input3" type="number" name="fb" placeholder="Free Board (%):" step="0.001"  required>
-            </div>
-            
-           
-			<div class="input-container">
-                <input class="input3" type="number" name="cost" placeholder="Cost of earth work per cumec:" step="0.001"  required>
-
-            </div>
-			
-        
-            <div class="button-container">
-               <!-- <button id="calculate-button" type="button">Calculate</button> -->
-                <!-- <button id="refresh-button" type="button" onclick="resetForm()">Refresh</button> -->
-                <button id="close-button">Close</button>
-                <input type="submit" value="Calculate" class="calculator-button">
+        <div class="container" style="width: 90%;">
+            <div class="row">
+                <h1 style="font-size: 40px;">Soil and Water Conservation Structure</h1>
+               <div class="col-md-12">
+                <a class="animated-button" style="text-align: center;" href="{{ page1_url1 }}" id="revealButton"><i class="fas fa-mountain"></i>&nbsp; <span class="text-animation" id="spnx1">Soil Conservation Plan and Water Storage Plan</span></span></a>
+               
+                <a class="animated-button"  style="text-align: center;" href="{{page1_url2}}" id="revealButton1"><i class="fas fa-leaf"></i> &nbsp;<span class="text-animation" id="spnx2">Drainage line treatment</span> </a>
+                <!--<button class="animated-button" id="revealButton2"><i class="fas fa-hdd"></i>&nbsp;<span class="text-animation" id="spnx3">Storage</span></button>-->
+                <script>
+                    const button = document.getElementById('revealButton');
                 
-            </div>
-           </form>
-          
-        </div>
-        </div>
-
-		<script>// script.js
-            // script.js
-                  // document.getElementById('closeButton').addEventListener('click', function() {
-                  //     // Instead of closing the window, you could redirect to another page
-                  //     window.location.href = 'http://127.0.0.1:5000/';
-          
-                  // });
-          
-                  document.addEventListener('DOMContentLoaded', function () {
-              // Get the close button element
-              var closeButton = document.getElementById('close-button');
-          
-              // Add a click event listener to the close button
-              closeButton.addEventListener('click', function () {
-                  // Add the closing class to initiate the animation
-                  var buttonContainer = document.querySelector('.button-container');
-                  buttonContainer.classList.add('closing');
-          
-                  // Set a timeout to perform the closing action after the animation is complete
-                  setTimeout(function () {
-                      // Perform your closing action here (e.g., window.close())
-                      // For demonstration purposes, let's just redirect to a new page
-                      window.location.href = 'http://127.0.0.1:5000/index';
-                  }, 500); // Adjust the timeout duration to match the animation duration
-              });
-          });
-          
-          
-          
-                  </script>
-        
-
-
-<script>
-    function printReport() {
-        // Get the print button and put it into a variable
-        var printButton = document.getElementById('printButton');
-        // Set the print button visibility to 'hidden'
-        printButton.style.visibility = 'hidden';
-
-        // Create a new window and set its content to the report section
-        var printWindow = window.open('', '_blank');
-        printWindow.document.write('<html><head><title>Print Report</title>');
-
-        // Copy the styles from your existing stylesheets or style tags
-        var styles = document.querySelectorAll('style, link[rel="stylesheet"]');
-        styles.forEach(function (style) {
-            printWindow.document.head.appendChild(style.cloneNode(true));
-        });
-
-        printWindow.document.write('</head><body>');
-
-        // Include the image directly in the print window
-        var imageSrc = document.querySelector('.report1 img').src;
-        printWindow.document.write('<img src="' + imageSrc + '">');
-
-        // Copy the content of the report section
-        var printContent = document.querySelector('.containerz1').innerHTML;
-        printWindow.document.write(printContent);
-
-        printWindow.document.write('</body></html>');
-
-        // Print and close the new window
-        printWindow.document.close();
-        printWindow.print();
-        printWindow.close();
-
-        printButton.style.visibility = 'visible';
-    }
-</script>
-
-<script>
-
-    
-    document.getElementById('selected_soil').addEventListener('change', function() {
-        var inputField = document.getElementById('input-field');
-        inputField.style.display = this.value === 'CLAY' ? 'block' : 'none';
-
-        var inputField1 = document.getElementById('input-field1');
-        inputField1.style.display = this.value === 'LOAMY' ? 'block' : 'none';
-
-        var inputField2 = document.getElementById('input-field2');
-        inputField2.style.display = this.value === 'SANDY' ? 'block' : 'none';
-    });
-
-
-
-</script>
-
-<script>
-
-    function shortString(selector) {
-            const elements = document.querySelectorAll(selector);
-            const tail = '...';
-            if (elements && elements.length) {
-                for (const element of elements) {
-                let text = element.innerText;
-                if (element.hasAttribute('data-limit')) {
-                    if (text.length > element.dataset.limit) {
-                    element.innerText = `${text.substring(0, element.dataset.limit - tail.length).trim()}${tail}`;
+                    const textToReveal = document.getElementById('spnx1').innerHTML;
+                    const button1 = document.getElementById('revealButton1');
+                   
+                    const textToReveal1 = document.getElementById('spnx2').innerHTML;
+                    const button2 = document.getElementById('revealButton2');
+                   
+                    const textToReveal2 = document.getElementById('spnx3').innerHTML;
+                   // const textToReveal = "Fading Text";
+                    let currentText = "";
+                    let index = 0;
+                    let currentText1 = "";
+                    let index1 = 0;
+                    let currentText2 = "";
+                    let index2 = 0;
+                    function revealText() {
+                        currentText += textToReveal[index];
+                        button.innerText = currentText;
+                        index++;
+                
+                        if (index < textToReveal.length) {
+                            setTimeout(revealText, 50); // Adjust the delay (in milliseconds) between each letter
+                        }
                     }
-                } else {
-                    throw Error('Cannot find attribute \'data-limit\'');
-                }
-            }
-        }
-        }
-    
-        window.onload = function() {
-        shortString('.short');
-        };
-        </script>
-
-{% if s %}
-<div class="report1">
-<div class="containerz1">
-	<!-- Your result sections here -->
-	<div class="report">
-		<h1>Design and Estimate on Contour Bunding</h1>
-		<div class="section">
-			<h2>Land Slope (%)</h2>
-			<p>Entered value: <span  class="spnx" id="s" > {{ s }} </span></p>
-		</div>
-		<div class="section">
-			<h2>Vertical Interval (m)</h2>
-			<p>Evaluated value: <span class="spnx" id="vi">{{ vi }}</span></p>
-		</div>
-		<div class="section">
-			<h2>Horizontal Interval (m)</h2>
-			<p>Evaluated value: <span class="spnx" id="hi">{{ hi }}</span></p>
-		</div>
-		<div class="section">
-			<h2>Enter rainfall (mm)</h2>
-			<p>Entered Value: <span class="spnx" id="r">{{ r }}</span></p>
-		</div>
-
-		<div class="section">
-            {% if selected_soil == "CLAY" %}
-			<h2>Side slope of bund (Z) as per soil texture:</h2>
-			<p class="c">Entered Value <span id="value-input" class="spnx">{{ soil_dict1['selected_option1'] }}</span></p>
-            {% endif %}
-
-            {% if selected_soil == "LOAMY" %}
-            <h2>Side slope of bund (Z) as per soil texture:</h2>
-			<p class="c">Entered Value <span id="value-input1" class="spnx">{{ soil_dict1['selected_option2'] }}</span></p>
-            {% endif %}
-
-            {% if selected_soil == "SANDY" %}
-            <h2>Side slope of bund (Z) as per soil texture:</h2>
-			<p class="c">Entered Value <span id="value-input2" class="spnx">{{ soil_dict1['selected_option3'] }}</span></p>
-            {% endif %}
-		</div>
-
-		<div class="section">
-			<h2>Depth of water behind Bund (m):</h2>
-			<p>Evaluated value: <span class="spnx" id="d">{{ d }}</span></p>
-		</div>
-		<div class="section">
-			<h2>width between two bunds (m)</h2>
-			<p>Evaluated value: <span class="spnx" id="w">{{ w }}</span></p>
-		</div>
-		<div class="section">
-			<h2>Free Board (%):</h2>
-			<p>Entered value: <span class="spnx" id="fb">{{ fb }}</span></p>
-		</div>
-        <div class="section">
-			<h2>Height of Bund (H)</h2>
-			<p>Entered value: <span class="spnx" id="h">{{ h }}</span></p>
-		</div>
-		
-        <div class="section">
-
-            {% if selected_soil == "CLAY" %}
-			<h2>Entered Seepage line slope [Zs]:</h2>
-			<p class="c">Entered Value <span id="value-input" class="spnx">{{ soil_dict1['selected_option4'] }}</span></p>
-            {% endif %}
-
-            {% if selected_soil == "LOAMY" %}
-            <h2>Entered Seepage line slope [Zs]:</h2>
-			<p class="c">Entered Value <span id="value-input1" class="spnx">{{ soil_dict1['selected_option5'] }}</span></p>
-            {% endif %}
-
-            {% if selected_soil == "SANDY" %}
-            <h2>Entered Seepage line slope [Zs]:</h2>
-			<p class="c">Entered Value <span id="value-input2" class="spnx">{{ soil_dict1['selected_option6'] }}</span></p>
-            {% endif %}
-		</div>
-
-        <div class="section">
-			<h2>Base Width of Bund(B):</h2>
-			<p>Entered value: <span class="spnx" id="B">{{ B }}</span></p>
-		</div>
-        <div class="section">
-			<h2>Top Width of Bund(B):</h2>
-			<p>Entered value: <span class="spnx" id="T">{{ T }}</span></p>
-		</div>
-		
-		<div class="section">
-			<h2>Cross-sectional area</h2>
-			<p>Evaluated value: <span class="spnx" id="a">{{ a }}</span></p>
-		</div>
-		<div class="section">
-			<h2>Length of the bond per ha (m)</h2>
-			<p>Evaluated value: <span class="spnx" id="lbh">{{ lbh }}</span></p>
-		</div>
-		<div class="section">
-			<h2>Volume of earthwork(cumec):</h2>
-			<p>Evaluated value: <span class="spnx" id="vew">{{ vew }}</span></p>
-		</div>
-
-		<div class="section">
-			<h2>Add 20 % extra for depresions(cumec):</h2>
-			<p>Evaluated value: <span class="spnx" id="add20">{{ add20 }}</span></p>
-		</div>
-		<div class="section">
-			<h2>Entered Cost of earth per cumec:</h2>
-			<p>Evaluated value: <span class="spnx" id="cost">{{cost}}</span></p>
-		</div>
-		<div class="section">
-			<h2>Cost of bund per ha(Rs):</h2>
-			<p>Evaluated value: <span class="spnx" id="cbph">{{ cbph }}</span></p>
-		</div>
-
-    </div>
-</div>       
-
-
-</div>
-</div>
-
-
-<div class="containerz1" style="text-align: left;">
-<span style="
-   position: relative;
-display: inline;
-top: 100px;
-width: 100%;
-left: 680px;
-border-radius: 3px;
-color: #ffc927;
-padding: 4px;
-font-weight: bold;
-font-size: 14px;
-background-color: #097070;
-">VI : {{vi}}(m)</span>
-<span id="shi" 
-style="position: relative;
-display: inline;
-top: 240px;
-left: 820px;
-border-radius: 3px;
-color: #ffc927;
-padding: 4px;
-font-weight: bold;
-font-size: 14px;
-background-color: #097070;
-">HI : {{hi}}(m)</span>
-<span id="shi" 
-style="position: relative;
-display: inline;
-top: 315px;
-left: 625px;
-border-radius: 3px;
-color: #ffc927;
-padding: 4px;
-font-weight: bold;
-font-size: 14px;
-background-color: #097070;
-">T : {{T}}(m)</span>
-<span id="shi" 
-style="position: relative;
-display: inline;
-top: 400px;
-left: 400px;
-border-radius: 3px;
-color: #ffc927;
-padding: 4px;
-font-weight: bold;
-font-size: 14px;
-background-color: #097070;
-">S : {{s}}(m)</span>
-<span id="shi" 
-style="position: relative;
-display: inline;
-top: 380px;
-left: 650px;
-border-radius: 3px;
-color: #ffc927;
-padding: 4px;
-font-weight: bold;
-font-size: 14px;
-background-color: #097070;
-">H : {{h}}(m)</span>
-<span id="shi" 
-style="position: relative;
-display: inline;
-top: 455px;
-left: 367px;
-border-radius: 3px;
-color: #ffc927;
-padding: 4px;
-font-weight: bold;
-font-size: 14px;
-background-color: #097070;
-">B : {{B}}(m)</span>
-<div style="
-text-align: center;
-width: 1800px;
-height: 750px;
-background-size: contain;
-background-repeat: no-repeat;" ><img src="{{ url_for('static', filename='svg1.jpg') }}"></div>
-<div class="button-container">
-        <button id="printButton" onclick="printReport()">Print Report</button>
+                    function revealText1() {
+                        currentText1 += textToReveal1[index1];
+                        button1.innerText = currentText1;
+                        index1++;
+                
+                        if (index1 < textToReveal1.length) {
+                            setTimeout(revealText1, 50); // Adjust the delay (in milliseconds) between each letter
+                        }
+                    }
+                    function revealText2() {
+                        currentText2 += textToReveal2[index2];
+                        button2.innerText = currentText2;
+                        index2++;
+                
+                        if (index2 < textToReveal2.length) {
+                            setTimeout(revealText2, 50); // Adjust the delay (in milliseconds) between each letter
+                        }
+                    }
+                
+                    button.addEventListener('mouseover', () => {
+                        index = 0;
+                        currentText = "";
+                        revealText();
+                    });
+                    button1.addEventListener('mouseover', () => {
+                        index1 = 0;
+                        currentText1 = "";
+                        revealText1();
+                    });
+                    button2.addEventListener('mouseover', () => {
+                        index2 = 0;
+                        currentText2 = "";
+                        revealText2();
+                    });
+                </script>
+               </div>
+            </div>
         </div>
-    </div>     
-    
     </div>
-    {% endif %}
-    </div>
-</div>     
-
-<footr style="position: fixed;
-width: 100%;
-bottom: 0px;"> 
-<div class="copyright">
-    <div class="container">
-        <p>© 2023 All Rights Reserved. Developed & Maintained by<a href="#"> Odisha University of Agriculture and Technology</a></p>
+    <!-- end about -->
+    <!-- for_box -->
    
-</div>
-</div>
-</footr>
+    <!-- end for_box -->
+    <!-- offer -->
+   
+
+    <footr style="position: fixed;
+width: 100%;
+bottom: 0px;">
 
 
+        <div class="copyright">
+            <div class="container">
+                <p>© 2023 All Rights Reserved. Developed & Maintained by<a href="#"> Odisha University of Agriculture and Technology</a></p>
+
+            </div>
+        </div>
+    </footr>
+
+    <!-- end footer -->
+
+    <script src="{{ url_for('static', filename='cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.html') }}"></script>
     <!-- end footer -->
     <!-- Javascript files-->
     <script data-cfasync="false" src="{{ url_for('static', filename='../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js') }}"></script><script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/jquery-3.0.0.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/plugin.js') }}"></script>
     <!-- sidebar -->
     <script src="{{ url_for('static', filename='js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
     <!-- javascript -->
     <script src="{{ url_for('static', filename='js/owl.carousel.html') }}"></script>
 
-
-</body>
+  </body>
 
 
 <!-- Mirrored from html.design/demo/moon/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 25 Sep 2023 03:00:02 GMT -->

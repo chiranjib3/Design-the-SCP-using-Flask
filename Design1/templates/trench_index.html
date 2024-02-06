@@ -1,206 +1,808 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Trench Bund Calculator</title>
-
-	<style type="text/css">
-
-.c{
-		color: rgb(47, 15, 230); 
-		font-size: 20px; 
-		font-weight: bold;
-		display: inline-block; /* Make the labels display inline with the inputs */
-		width: 300px; /* Adjust the width to match the input width */
-		margin: 5px; /* Add some margin around the labels */
-		
-	}
-
-	input[type="number"] {
-    box-sizing: 4%;
-	color: rgb(241, 11, 211); 
-	font-size: 20px; 
-	box-sizing: border-box;
-	border: 3px solid #161718;
-	margin-bottom: 4px;
-	padding: 4px;
-	width: 180px; /* Adjust the width to your desired size */
-	height: 30px; /* Adjust the height to your desired size */
-	margin: 5px; /* Add some margin around the input fields */
-	border-radius: 5px; /* Round the corners of the input fields */
-  }
-
-  form {
-			max-width: 100%;
-			margin: 0 auto;
-			font-family: Arial, sans-serif;
-		}
-
-		.calculator-button {
-			position: absolute;
-			top: 101.5%;
-			left: 6%;
-			transform: translate(-50%, -50%);
-			color: rgb(241, 8, 144);
-			border: 3px solid #161718;
-			font-weight: bold;
-			font-size: 18px;
-			cursor: pointer;
-			display: inline-block;
-			width: 150px; /* Adjust the width to match the input width */
-			margin: 5px; /* Add some margin around the labels */
-
-
-		}
-		.re {
-    position: absolute;
-    top: 102%;
-    left: 20%;
-    transform: translateY(-50%);
-    border: 4px solid green;
-    width: 145px;
-    font-weight: bold;
-    font-size: 18px;
-    cursor: pointer;
+    <title>home page</title>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <!-- style css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+    <!-- fevicon -->
+    <link rel="icon" href="{{ url_for('static', filename='images/fevicon.html') }}" type="image/gif" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/jquery.mCustomScrollbar.min.css') }}">
+    <!-- Tweaks for older IEs -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='../../../netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css') }}">
+    <!-- owl stylesheets -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='../../../cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.theme.default.min.html') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../../../cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <style>
+        .containerz1 {
+    background-color: #fff;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
     display: inline-block;
 }
 
-.re1 {
-    position: absolute;
-    top: 102%;
-    left: 12%;
-    transform: translateY(-50%);
-    border: 4px solid green;
-    width: 145px;
-    font-weight: bold;
-    font-size: 18px;
-    cursor: pointer;
-    display: inline-block;
+h1 {
+    color: #333;
+    font-size: 20px;
 }
 
-		
-	</style>
+.input-container {
+    display: inline-block;
+    margin: 10px;
+    position: relative;
+    transition: border-color 0.3s, box-shadow 0.3s; /* Add transitions for border color and box shadow */
+    transform: scale(1); /* Initial scale, 1 means no scaling */
+}
+
+.input-container:hover {
+    transform: scale(1.05); /* Zoom in by 5% on hover */
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 20px;
+    border:solid 2px rgb(230, 230, 230);
+    border-radius: 5px;
+    /* font-size: 16px; */
+    transition: border-color 0.3s, box-shadow 0.3s, border-bottom-width 0.3s; /* Add transition for border bottom width */
+    line-height: 3;
+}
+
+input:focus {
+
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+    border-bottom: 2px solid #3498db; /* Increase border-bottom width on focus */
+}
+
+.error-message {
+    color: #e74c3c;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+}
 
 
+         .header {
+            font-family: poppins;
+            padding: 10px 0px;
+            background: #f6fbf1;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-position: center center;
+            height: 180px;
+            
+        }
+.main-menu ul li a {
+    line-height: 20px;
+    font-size: 16px;
+    display: block;
+    font-weight: 500;
+    color: #fff;
+    padding: 19px 17px;
+    width: 160px;
+    white-space: nowrap;
+    border-right: solid #119711 1px;
+}
+.banner-main .carousel-caption p {
+    font-size: 25px;
+    line-height: 31px;
+    padding: 6px 0px 50px 0px;
+    padding: 20px;
+    background-color: #00000061;
+}
+.location_icon_bottum {
+    position: relative;
+    z-index: 999;
+    background: #6fa704;
+    margin-left: 31px;
+    top: 0;
+    margin-bottom: -66px;
+    border-radius: 10px;
+    /* border-top-left-radius: 20px; */
+   
+    
+}
+nav.main-menu {
+    float: left;
+    margin-left: 0;
+}
+
+.location_icon_bottum::before {
+    position: absolute;
+    content: "";
+    top: 0px;
+   background: none; 
+    background-repeat: repeat;
+    width: 67px;
+    height: 67px;
+    background-repeat: no-repeat;
+    left: -35px;
+}
+.logo {
+    float: left;
+    position: relative;
+    padding-top: 2px;
+    width: 100%;
+    text-align: center;
+}
+.main-menu ul {
+    margin: 0;
+    list-style-type: none;
+    margin-bottom: 0px;
+}
+@media (min-width: 1200px)
+{
+    .container {
+    max-width: 100%;
+}
+}
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+.button-container {
+    margin-top: 20px;
+    text-align: left;
+    display: inline-block;
+    width: 100%;
+}
+        .spnx {
+            background-color: #b1449f;
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+.calculator-button{
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 0 10px; /* Add margin between buttons */
+	font-weight: bold;
+	font-size: 18px;
+	cursor: pointer;
+	width: 150px; /* Adjust the width to match the input width */
+    line-height: 1.6;
+
+}
+
+.calculator-button:hover {
+    background-color: #2980b9;
+}
+
+#refresh-button {
+    background-color: #27ae60; /* Green color for refresh button */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 10px; /* Add margin between buttons */
+}
+
+#close-button {
+    background-color: #e74c3c; /* Red color for close button */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 10px; /* Add margin between buttons */
+}
+.report {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+  
+    border-radius: 5px;
+}
+/* #report-section {
+    display: none; Initially hide the report section */
+/* } */
+/* #report-sectionx {
+    display: none; /* Initially hide the report section */
+/* } */ */
+h1 {
+    text-align: center;
+    color: #3498db; /* Blue color for the title */
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.section {
+    margin-bottom: 20px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgb(133 134 139 / 50%);
+    margin: 10px;
+    display: inline-block;
+    width: 600px;
+}
+
+        h2 {
+            color: #fff;
+            font-size: 20px;
+            margin-bottom: 10px;
+            background-color: #635dc5;
+            padding: 5px;
+            width: 100%;
+            /* border-radius: 5px; */
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+p {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #555;
+    font-weight:600;
+}
+
+/* Add hover effect for sections */
+.section:hover {
+    background-color: #f0f0f0; /* Light gray background on hover */
+    transition: background-color 0.3s;
+}
+
+
+
+/* Apply the animation to specific elements */
+.section p {
+    animation: textAnimation 0.5s ease-in-out;
+}
+@keyframes textAnimation {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+input::placeholder {
+    white-space: pre-line;
+    font-size: 1.1em;
+    text-align: center;
+
+
+}
+#printButton {
+    background-color: #520cd4; /* Green color for refresh button */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 10px; /* Add margin between buttons */
+    margin-left: 50%;
+}
+
+
+
+    </style>
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
 </head>
-<body>
-	<h1 style ="color: rgb(240, 28, 9);"> Design for Trench bund</h1>
-	<form method="post">
-		<p>
-			<label class="c" for="p">One day maximum rainfall for 2 years return period(P)mm:</label>
-			<input type="number" step="0.01" name="p" autocomplete="on" required>
-		</p>
-		<p>   
-			<label class="c" for="v">% of direct runoff to be trapped(V)%:</label>
-			<input type="number" step="0.01" name="v" autocomplete="on" required>
-		</p>
+<!-- body -->
 
-		<p>
-			<label class="c" for="si">Avarage slope of land(SI)%:</label>
-            <input type="number" step="0.01" name="si" autocomplete="on"  required>
-	    </p>
+<body class="main-layout ">
+    <!-- loader  -->
+    <!-- <div class="loader_bg">
+        <div class="loader"><img src="{{ url_for('static', filename='images/loading.gif') }}" alt="#" /></div>
+    </div> -->
+    <!-- end loader -->
+    <!-- header -->
+    <header>
+        <!-- header inner -->
+        <div class="header">
 
-		<p>
-			<label class="c" for="Dsoil">Soil depth(Dsoil)cm:</label>
-			<input type="number" step="0.01" name="Dsoil" autocomplete="on"  required>
-		</p>
+            <div class="container" style="padding-right: 0px; 
+             padding-left: 0px;">
+                <div class="row" style="margin-top: 20px;">
+                    <div class="col-md-1 col-sm-12 col logo_section">
+                        <div class="full">
+                            <div class="center-desk">
+                                <div class="logo">
+                                    <a href=""><img src="{{ url_for('static', filename='logo_0.png') }}" style="height: 81px;" alt="#"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-		<p>
-			<label class="c" for="Wplot">Width of plot(Wplot)m:</label>
-			<input type="number" step="0.01" name="Wplot" autocomplete="on"  required>
-		</p>
-		<p>
-			<label class="c" for="Lplot">Length of plot(Lplot)m:</label>
-			<input type="number" step="0.01" name="Lplot" autocomplete="on"  required>
-		</p>
-		<p>
-			<label class="c" for="PP">Plant-plant spacing(p-p)m:</label>
-			<input type="number" step="0.01" name="PP" autocomplete="on" required>
-		</p>
-		<p>
-			<label class="c" for="RR">Row-row spacing(R-R)m:</label>
-			<input type="number" step="0.01" name="RR" autocomplete="on" required>
-		</p>
-		<p>
-			<label class="c" for="cn2">Curve number(AMC-II)(CN2):</label>
-			<input type="number" step="0.01" name="cn2" autocomplete="on" required>
-		</p>
-		<p>
-			<label class="c" for="W">Trench width(W)cm</label>
-			<input type="number" step="0.01" name="W" autocomplete="on" required>
-		</p>
-		<p>
-			<label class="c" for="D">Trench depth(D)cm:</label>
-			<input type="number" step="0.01" name="D" autocomplete="on" required>
-		</p>
-		<p>
-			<label class="c" for="X">Gap between trenches(X)m:</label>
-			<input type="number" step="0.01" name="X" autocomplete="on" required>
-		</p>
-		<p>
-			<label class="c" for="L">Length of each trench(L)m:</label>
-			<input type="number" step="0.01" name="L" autocomplete="on" required>
-		</p>
-		<p>
-			<label class="c" for="RoEW">Rate of earth work:</label>
-			<input type="number" step="0.01" name="RoEW" autocomplete="on" required>
-		</p>
-		
-		<p>
-			<br><br>
-			<input type="submit" value="Calculate" class="calculator-button">
-		</p>
-		
-	</form>
+                    <div class="col-xl-9 col-lg-8 col-md-8 col-sm-8">
+                        <div class="location_icon_bottum_tt">
+                            <h2 style="color:black; text-transform: uppercase; text-align: center;     font-size: 30px;
+                            font-weight: bold;    background-color: transparent;">
+                                REWARD - Hydrology
+                            </h2>
+                            <h3 style="color:rgb(88 2 166); text-transform: uppercase; text-align: center; font-weight: 800;font-size: 26px;
+                            letter-spacing: 1px;">
+                                Rejuvenating Watersheds for Agricultural Resilience through Innovative Development
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="col-md-1 col-sm-12 col logo_section">
+                        <div class="full">
+                            <div class="center-desk">
+                                <div class="logo">
+                                    <a href="{{ url_for('static', filename='index-2.html') }}"><img src="{{ url_for('static', filename='images/world_bank_logo.png') }}" style="height: 81px;" alt="#"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1 col-sm-12 col logo_section">
+                        <div class="full">
+                            <div class="center-desk">
+                                <div class="logo">
+                                    <a href="index-2.html"><img src="{{ url_for('static', filename='Seal_of_Odisha.png') }}" style="height: 81px;" alt="#"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
+                </div>
+                <div cl="row">
+                    
+                </div>
+                <div class="container" style="padding-right: 0px; 
+                padding-left: 0px;">
+                    <div class="col-md-12" style="z-index: 999;
+                    background: #6fa704;
+                    margin-bottom: -66px;
+                    box-shadow: inset 2px 59px 0px -15px #18b500;
+                    background-color: #07a847;
+                    
+                    display: inline-block;
+                    cursor: pointer;
+                    color: #ffffff;
+                    font-family: Arial;
+                    font-size: 15px;
+                    font-weight: bold;
+                    /* padding: 9px 23px; */
+                    text-decoration: none;
+                    text-shadow: 0px -1px 0px #4800cf;
+                  ">
+                       <div class="row">
+                            <div class="col-md-12">
+                                <div class="menu-area">
+                                    <div class="limit-box">
+                                        <nav class="main-menu" style="width: 100%;">
+                                            <ul class="menu-area-main">
+                                                <li class="active"> <a href="index-2.html">Home</a> </li>
+                                                <li> <a href="#about" style=" line-height: 20px;
+                                                    font-size: 16px;
+                                                    display: block;
+                                                    font-weight: 500;
+                                                    color: #fff;
+                                                    padding: 19px 17px;
+                                                    width: 160px;
+                                                    white-space: nowrap;
+                                                    border-right: solid #119711 1px;">About</a> </li>
+                                                <li><a href="#DSS" style=" line-height: 20px;
+                                                    font-size: 16px;
+                                                    display: block;
+                                                    font-weight: 500;
+                                                    color: #fff;
+                                                    padding: 19px 17px;
+                                                    width: 160px;
+                                                    white-space: nowrap;
+                                                    border-right: solid #119711 1px;">DSS</a></li>
+                                                <li><a href="gallery.html" style=" line-height: 20px;
+                                                    font-size: 16px;
+                                                    display: block;
+                                                    font-weight: 500;
+                                                    color: #fff;
+                                                    padding: 19px 17px;
+                                                    width: 160px;
+                                                    white-space: nowrap;
+                                                    border-right: solid #119711 1px;">Gallery</a></li>
+                                                <li><a href="team.html" style=" line-height: 20px;
+                                                    font-size: 16px;
+                                                    display: block;
+                                                    font-weight: 500;
+                                                    color: #fff;
+                                                    padding: 19px 17px;
+                                                    width: 160px;
+                                                    white-space: nowrap;
+                                                    border-right: solid #119711 1px;">Team</a></li>
+                                                <li><a href="publication.html" style=" line-height: 20px;
+                                                    font-size: 16px;
+                                                    display: block;
+                                                    font-weight: 500;
+                                                    color: #fff;
+                                                    padding: 19px 17px;
+                                                    width: 160px;
+                                                    white-space: nowrap;
+                                                    border-right: solid #119711 1px;">Publication</a></li>
+                                                <li><a href="#contact" style=" line-height: 20px;
+                                                    font-size: 16px;
+                                                    display: block;
+                                                    font-weight: 500;
+                                                    color: #fff;
+                                                    padding: 19px 17px;
+                                                    width: 160px;
+                                                    white-space: nowrap;
+                                                    border-right: solid #119711 1px;">Contact Us</a></li>
+                                                <li><a href="faq.html" style=" line-height: 20px;
+                                                    font-size: 16px;
+                                                    display: block;
+                                                    font-weight: 500;
+                                                    color: #fff;
+                                                    padding: 19px 17px;
+                                                    width: 160px;
+                                                    white-space: nowrap;
+                                                    border-right: solid #119711 1px;">FAQ's</a></li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+
+                            </div>
+                           
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end header inner -->
+    </header>
+    <!-- end header -->
+
+    <!-- about -->
+	<!-- about -->
+    <div id="about" class="about">
+	<div class="containerz1" >
+		<form method="post" id="contourForm">
+		<h1>Enter Parameters for Trench bund</h1>
+			<div class="input-container">
+			<input type="number" name="p" placeholder="One day max rainfall for 2 years return period(mm):" step="0.001" required>
+			<div class="error-message" id="land-slope-error">Please enter a valid slope percentage.</div>
+		</div>
+		<div class="input-container">
+			<input type="number" name="v" placeholder="Direct runoff to be trapped(%):" step="0.001" required>
+			<div class="error-message" id="rainfall-error">Please enter a valid rainfall amount.</div>
+		</div>
+		<div class="input-container">
+			<input type="number" name="si" placeholder="Avarage slope of land as per soil texture(%):" step="0.001"></textarea>
+			<div class="error-message" id="bund-slope-error">Please enter a Slope of Bund.</div>
+		</div>
+		<div class="input-container">
+			<input type="number" name="Dsoil" placeholder="Soil depth(cm)" step="0.001"  required>
+			<div class="error-message" id="free-Board-error">Please enter a valid depth.</div>
+		</div>
+		<div class="input-container">
+			<input type="number" name="Wplot" placeholder="Width of plot(m):" step="0.001"  required>
+			<div class="error-message" id="wall-width-error">Please enter a valid width.</div>
+		</div>
+		<div class="input-container">
+			<input type="number" name="Lplot" placeholder="Length of plot(m):" step="0.001"  required>
+			<div class="error-message" id="wall-width-error">Please enter a valid width.</div>
+		</div>
+		<div class="input-container">
+			<input type="number" name="PP" placeholder="Plant-plant spacing(m):" step="0.001"  required>
+			<div class="error-message" id="wall-width-error">Please enter a valid width.</div>
+		</div>
+		<div class="input-container">
+			<input type="number" name="RR" placeholder="Row-row spacing(m):" step="0.001"  required>
+			<div class="error-message" id="wall-width-error">Please enter a valid width.</div>
+		</div>
+		<div class="input-container">
+			<input type="number" name="cn2" placeholder="Curve number(CN2):" step="0.001"  required>
+			<div class="error-message" id="wall-width-error">Please enter a valid width.</div>
+		</div>
+		<div class="input-container">
+			<input type="number" name="W" placeholder="Trench width(cm)" step="0.001"  required>
+			<div class="error-message" id="wall-width-error">Please enter a valid width.</div>
+		</div>
+		<div class="input-container">
+			<input type="number" name="D" placeholder="Trench depth(cm):" step="0.001"  required>
+			<div class="error-message" id="wall-width-error">Please enter a valid width.</div>
+		</div>
+		<div class="input-container">
+			<input type="number" name="X" placeholder="Gap between trenches(m):" step="0.001"  required>
+			<div class="error-message" id="wall-width-error">Please enter a valid width.</div>
+		</div>
+		<div class="input-container">
+			<input type="number" name="L" placeholder="Length of each trench(m):" step="0.001"  required>
+			<div class="error-message" id="wall-width-error">Please enter a valid width.</div>
+		</div>
+		<div class="input-container">
+			<input type="number" name="RoEW" placeholder="Rate of earth work:" step="0.001"  required>
+			<div class="error-message" id="wall-width-error">Please enter a valid width.</div>
+		</div>
+
+       
+
+
+
+   
+
+		<div class="button-container">
+			<!-- <button id="calculate-button" type="button">Calculate</button> -->
+			
+			 <button id="close-button">Close</button>
+			 <input type="submit" value="Calculate" class="calculator-button">
+			 
+		 </div>
+		</form>
+	   
+</div>
+
+
+<script>// script.js
+    // script.js
+          // document.getElementById('closeButton').addEventListener('click', function() {
+          //     // Instead of closing the window, you could redirect to another page
+          //     window.location.href = 'http://127.0.0.1:5000/';
+  
+          // });
+  
+          document.addEventListener('DOMContentLoaded', function () {
+      // Get the close button element
+      var closeButton = document.getElementById('close-button');
+  
+      // Add a click event listener to the close button
+      closeButton.addEventListener('click', function () {
+          // Add the closing class to initiate the animation
+          var buttonContainer = document.querySelector('.button-container');
+          buttonContainer.classList.add('closing');
+  
+          // Set a timeout to perform the closing action after the animation is complete
+          setTimeout(function () {
+              // Perform your closing action here (e.g., window.close())
+              // For demonstration purposes, let's just redirect to a new page
+              window.location.href = 'http://127.0.0.1:5000/index';
+          }, 500); // Adjust the timeout duration to match the animation duration
+      });
+  });
+  
+  
+  
+          </script>
+
+          <!-- Add this script at the end of your HTML body or in the head section -->
 <script>
-// When the form is submitted, store the input values in a cookie
-document.querySelector('form').addEventListener('submit', function(event) {
-  const formData = new FormData(event.target);
-  for (const [name, value] of formData.entries()) {
-    document.cookie = `${name}=${encodeURIComponent(value)}`;
-  }
-});
+    function printReport() {
+        //Get the print button and put it into a variable
+        var printButton = document.getElementById('printButton');
+        //Set the print button visibility to 'hidden' 
+        printButton.style.visibility = 'hidden';
 
-// When the page loads, retrieve the input values from the cookie and populate the form fields
-window.addEventListener('load', function() {
-  const inputs = document.querySelectorAll('input[type="number"]');
-  for (const input of inputs) {
-    const name = input.getAttribute('name');
-    const value = getCookie(name);
-    if (value) {
-      input.value = value;
+        var printContent = document.querySelector('.report1').innerHTML;
+        var originalContent = document.body.innerHTML;
+
+        // Create a new window and set its content to the report section
+        var printWindow = window.open('', '_blank');
+        printWindow.document.write('<html><head><title>Print Report</title>');
+
+        // Copy the styles from your existing stylesheets or style tags
+        var styles = document.querySelectorAll('style, link[rel="stylesheet"]');
+        styles.forEach(function(style) {
+            printWindow.document.head.appendChild(style.cloneNode(true));
+        });
+
+        printWindow.document.write('</head><body>');
+        printWindow.document.write(printContent);
+        printWindow.document.write('</body></html>');
+
+        // Print and close the new window
+        printWindow.document.close();
+        printWindow.print();
+        printWindow.close();
+
+        printButton.style.visibility = 'visible';
+
     }
-  }
-});
-
-// Helper function to retrieve a cookie value by name
-function getCookie(name) {
-  const cookies = document.cookie.split(';');
-  for (const cookie of cookies) {
-    const [cookieName, cookieValue] = cookie.trim().split('=');
-    if (cookieName === name) {
-      return decodeURIComponent(cookieValue);
-    }
-  }
-  return null;
-}
-
-
-
-		var form = document.querySelector('form');
-		form.addEventListener('submit', function() {
-			updateImage(0, 0, 0, 0);
-		});
 </script>
+{% if s %}
+
+<div class="report1">
+    
+<div class="containerz1">
+ <!-- Your result sections here -->
+<div class="report">
+	 <h1>Design and Estimate on Trench Bunding</h1>
+	 <div class="section">
+		 <h2>One day maximum rainfall(P)mm:</h2>
+		 <p>Entered value: <span  class="spnx" id="p" > {{ p }} </span></p>
+	 </div>
+	 <div class="section">
+		 <h2> % of direct runoff to be trapped(V)%</h2>
+		 <p>Entered value: <span class="spnx" id="v">{{ v }}</span></p>
+	 </div>
+	 <div class="section">
+		 <h2>Avarage slope of land(SI)%:</h2>
+		 <p>Entered value: <span class="spnx" id="si">{{ si }}</span></p>
+	 </div>
+	 <div class="section">
+		 <h2>Soil depth(Dsoil)cm:</h2>
+		 <p>Entered Value: <span class="spnx" id="Dsoil">{{Dsoil}}</span></p>
+	 </div>
+
+	 <div class="section">
+		 <h2> Width of plot(Wplot)m:</h2>
+		 <p>Entered value: <span class="spnx" id="Wplot">{{ Wplot }}</span></p>
+	 </div>
+	 <div class="section">
+		 <h2>Length of plot(Lplot)m</h2>
+		 <p>Entered value: <span class="spnx" id="Lplot">{{ Lplot }}</span></p>
+	 </div>
+	 <div class="section">
+		 <h2>Plant-plant spacing(p-p)m:</h2>
+		 <p>Entered value: <span class="spnx" id="PP">{{ PP }}</span></p>
+	 </div>
+	 <div class="section">
+		 <h2>Row-row spacing(R-R)m:</h2>
+		 <p>Entered value: <span class="spnx" id="RR">{{ RR }}</span></p>
+	 </div>
+	 <div class="section">
+		 <h2>Curve number(AMC-II):</h2>
+		 <p>Entered value: <span class="spnx" id="cn2">{{ cn2 }}</span></p>
+	 </div>
+	 
+	 <div class="section">
+		 <h2>Curve number (AMC-III):</h2>
+		 <p>Evaluated value: <span class="spnx" id="cn3">{{ cn3 }}</span></p>
+	 </div>
+	 <div class="section">
+		 <h2>Maximum potential retention(S)mm:</h2>
+		 <p>Evaluated value: <span class="spnx" id=" s ">{{  s  }}</span></p>
+	 </div>
+	 <div class="section">
+		 <h2>Initial abstraction(Ia)mm:</h2>
+		 <p>Evaluated value: <span class="spnx" id="Ia">{{ Ia }}</span></p>
+	 </div>
+
+	 <div class="section">
+		 <h2>Direct runoff(Q)cm:</h2>
+		 <p>Evaluated value: <span class="spnx" id="Q">{{Q}}</span></p>
+	 </div>
+	 <div class="section">
+		 <h2>Trench width(W)cm:</h2>
+		 <p>Entered value: <span class="spnx" id="">{{W}}</span></p>
+	 </div>
+     <div class="section">
+        <h2>Trench depth(D)cm:</h2>
+        <p>Entered value: <span class="spnx" id="D">{{D}}</span></p>
+    </div>
+	 <div class="section">
+		 <h2>CS area of trench(A)cm^2:</h2>
+		 <p>Evaluated value: <span class="spnx" id="A">{{ A }}</span></p>
+	 </div>
+	 <div class="section">
+		<h2>Gap between trenches(X)m:</h2>
+		<p>Entered value: <span class="spnx" id="X">{{ X }}</span></p>
+	</div>
+	<div class="section">
+		<h2>Length of each trench(L)m:</h2>
+		<p>Entered value: <span class="spnx" id="L">{{ L}}</span></p>
+	</div>
+	<div class="section">
+		<h2>HI (CCT)m:</h2>
+		<p>Evaluated value: <span class="spnx" id="HiCCT">{{ HiCCT }}</span></p>
+	</div>
+	<div class="section">
+		<h2>VI (CCT)m:</h2>
+		<p>Evaluated value <span class="spnx" id="ViCCT">{{ ViCCT }}</span></p>
+	</div>
+	<div class="section">
+		<h2>Total length of trench/ha (CCT):</h2>
+		<p>Evaluated value <span class="spnx" id="LtotalCCT">{{ LtotalCCT }}</span></p>
+	</div>
+	<div class="section">
+		<h2>No. of trench (CCT)/ha:</h2>
+		<p>Evaluated value <span class="spnx" id="NoTCCTha">{{ NoTCCTha }}</span></p>
+	</div>
+	<div class="section">
+		<h2>Volume of earthwork/ha:</h2>
+		<p>Evaluated value: <span class="spnx" id="Vearth">{{ Vearth }}</span></p>
+	</div>
+	<div class="section">
+		<h2>Rate of earth work:</h2>
+		<p>Entered value: <span class="spnx" id="RoEW">{{ RoEW }}</span></p>
+	</div>
+	<div class="section">
+		<h2>Cost of trenching/ha:</h2>
+		<p>Evaluated value: <span class="spnx" id="CPA">{{ CPA  }}</span></p>
+	</div>
+ 
+</div>
+<div class="button-container">
+    <button id="printButton" onclick="printReport()">Print Report</button>
+    </div>	
+</div> 
+</div> 
+{% endif %}      
+</div>
+
+    <footr style="position: fixed;
+    width: 100%;
+    bottom: 0px;"> 
+        <div class="copyright">
+            <div class="container">
+                <p>© 2023 All Rights Reserved. Developed & Maintained by<a href="#"> Odisha University of Agriculture and Technology</a></p>
+        
+        </div>
+        </div>
+    </footr>
 
 
-<a href="{{ url_for('index') }}" >
-	<button class="re1">
-		Home </button></a>
 
-		<a href="{{ url_for('index1') }}" >
-			<button class="re">
-				Back </button></a>
+<footr style="position: fixed;
+width: 100%;
+bottom: 0px;"> 
+<div class="copyright">
+<div class="container">
+    <p>© 2023 All Rights Reserved. Developed & Maintained by<a href="#"> Odisha University of Agriculture and Technology</a></p>
+
+</div>
+</div>
+</footr>
+
+
+<!-- end footer -->
+<!-- Javascript files-->
+<script data-cfasync="false" src="{{ url_for('static', filename='../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js') }}"></script><script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery-3.0.0.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/plugin.js') }}"></script>
+<!-- sidebar -->
+<script src="{{ url_for('static', filename='js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+<!-- javascript -->
+<script src="{{ url_for('static', filename='js/owl.carousel.html') }}"></script>
+
 
 </body>
+
+
+<!-- Mirrored from html.design/demo/moon/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 25 Sep 2023 03:00:02 GMT -->
 </html>
